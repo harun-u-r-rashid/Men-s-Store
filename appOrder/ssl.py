@@ -23,8 +23,8 @@ def sslcommerz_payment_gateway(request, id, user_id, grand_total):
     post_body['total_amount'] = grand_total
     post_body['currency'] = "BDT"
     post_body['tran_id'] = uniqueTrasactionGenerator()
-    post_body['success_url'] = 'http://127.0.0.1:8000/orders/success/'
-    post_body['fail_url'] = 'http://127.0.0.1:8000/orders/fail/'
+    post_body['success_url'] = 'http://127.0.0.1:8000/appOrder/orderDetails/'
+    post_body['fail_url'] = 'http://127.0.0.1:8000/appOrder/failedOrder/'
     post_body['cancel_url'] = 'http://127.0.0.1:8000/'
     post_body['emi_option'] = 0
     post_body['cus_email'] = 'request.user.email'  # Retrieve email from the current user session
