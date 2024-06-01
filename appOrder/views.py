@@ -33,7 +33,7 @@ def successView(request):
 
     payment.save()
 
-    order = Order.objects.get(user=user, is_ordered=False, order_number=data['value_a'])
+    order = Order.objects.get(user=request.user, is_ordered=False, order_number=data['value_a'])
     order.payment = payment
     order.is_ordered = True
     order.save()
