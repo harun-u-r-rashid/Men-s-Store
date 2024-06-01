@@ -1,0 +1,197 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="cache-control" content="max-age=604800" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <title>{% block title %}Default Title{% endblock %}</title>
+    <!-- Tailwind css -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
+
+    <!-- Fontawesome link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- swiffyslider link -->
+    <link href="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/css/swiffy-slider.min.css" rel="stylesheet" crossorigin="anonymous">
+
+
+    <!-- Internal css link -->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static 'css/home.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static 'css/register.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static 'css/signin.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static 'css/store.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static 'css/details.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static 'css/cart.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static 'css/resetPassword.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static 'css/social.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static 'css/fail.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static 'css/account.css' %}" rel="stylesheet" type="text/css" />
+
+
+</head>
+
+<body>
+    <header>
+        <h3>free shipping all over bangladesh</h3>
+        <nav>
+            <div class="navContainer">
+                <div class="logoHome">
+                    <div class="navLogo">
+                        <img src="{% static 'images/logoNav.png' %}" alt="">
+
+                    </div>
+                    <div class="homeNav">
+                        <li><a href="{% url 'home' %}">Home</a></li>
+                    </div>
+
+                </div>
+
+                <div class="navList">
+                    <ul class="navUl">
+                        <div class="navUlDiv">
+
+                            <!-- <li><a href="">About</a></li>
+                        <li><a href="">Contact</a></li> -->
+                            {% if request.user.is_authenticated %}
+
+                            <div class="authenticated">
+                                <small>Welcome {{user.username}}</small>
+                                <div>
+                                    <!-- <li><a href="{% url 'account' %}">Account</a></li> -->
+                                      <li><a href="{% url 'account' %}">Account</a></li>
+                                    <li><a href="{% url 'logout' %}">Logout</a></li>
+                                </div>
+
+                            </div>
+
+                            <div>
+                                <li><a href="{% url 'cart' %}"><i class="fa-solid fa-cart-shopping"></i></a></li>
+                            </div>
+
+
+                            {% else %}
+
+                            <div class="notAuthenticated">
+                                <small>Welcome guest</small>
+                                <div>
+                                    <li><a href="{% url 'login' %}">Login</a></li>
+                                    <li><a href="{% url 'register' %}">Register</a></li>
+                                </div>
+                            </div>
+
+                            {% endif %}
+
+                            
+
+
+
+                        </div>
+
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    {% block body %}{% endblock %}
+
+
+    <footer>
+        <div class="footerContainer">
+            <div class="footerContent">
+                <h3>contact us</h3>
+                <div class="location">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <h2>Uttara, Dhaka</h2>
+                </div>
+
+                <div class="phone">
+                    <i class="fa-solid fa-phone"></i>
+                    <h2>+8809123-087302</h2>
+                </div>
+
+                <div class="email">
+                    <i class="fa-solid fa-envelope"></i>
+                    <h2>xyz@gmail.com</h2>
+                </div>
+            </div>
+
+            <div class="footerContent">
+                <h3>company</h3>
+                <div>
+                    <span>
+                        Who We Are
+                    </span>
+                </div>
+
+                <div>
+                    <span>
+                        Our Stories
+                    </span>
+                </div>
+
+                <div>
+                    <span>
+                        Investor Corner
+                    </span>
+                </div>
+
+                <div>
+                    <span>
+                        Career
+                    </span>
+                </div>
+
+            </div>
+
+            <div class="footerContent">
+                <h3>legal</h3>
+                <div>
+                    <span>Terms & conditions</span>
+                </div>
+                <div> 
+                    <span>Privacy Policy</span>
+                </div>
+                <div>
+                    <span>Return Policy</span>
+                </div>
+
+            </div>
+
+            <div class="footerContent">
+                <h3>Help</h3>
+                <div>
+                    <span>Security</span>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="payment">
+
+            <h3>payment us with</h3>
+            <div class="paymenIcon">
+                <i class="fa-brands fa-cc-visa"></i>
+                <i class="fa-brands fa-cc-visa"></i>
+                <i class="fa-brands fa-cc-visa"></i>
+                <i class="fa-brands fa-cc-visa"></i>
+            </div>
+        </div>
+        <div class="copyright">
+            <h2>COPYRIGHT 2024 || HARUNUR RASHID</h2>
+        </div>
+    </footer>
+
+    <!-- sfiffy -->
+    <script src="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/js/swiffy-slider.min.js" crossorigin="anonymous" defer></script>
+    <!-- Tailwind -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+</body>
+
+</html>

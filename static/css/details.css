@@ -1,0 +1,238 @@
+.detailsSection {
+        margin-top: 20px;
+}
+
+.detailsContainer {
+        width: 1200px;
+        align-items: center;
+        margin: auto;
+
+}
+
+.detailsCard {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+
+}
+
+.image {
+        width: 500px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+}
+
+
+.image .img {
+        width: 100%;
+        height: 420px;
+        opacity: 0.9;
+        transition: 0.5s;
+        border-radius: 4px;
+        margin-left: 100px;
+}
+
+
+
+.image .img:hover {
+        opacity: 1;
+}
+
+.details {
+        width: 800px;
+        align-items: center;
+        margin: auto;
+
+        margin-left: 200px;
+
+}
+
+
+.details h1 {
+        font-size: 30px;
+        font-weight: bold;
+        font-style: italic;
+        width: 100px;
+        text-align: center;
+        margin-left: -50px;
+        color: brown;
+
+}
+
+hr {
+
+        margin-bottom: 50px;
+        width: 100px;
+        margin-left: -50px;
+
+
+}
+
+.details h2 {
+        font-size: 20px;
+        font-weight: bold;
+        color: black;
+
+
+}
+
+.details .price {
+        margin: 30px 0;
+        width: 60px;
+        color: brown;
+        font-size: 21px;
+        font-weight: bold;
+
+}
+
+.details p {
+        width: 500px;
+        font-size: 17px;
+        color: #962730;
+        margin-bottom: 20px;
+        font-weight: 400;
+        border-top: 2px dashed #b69898;
+        border-bottom: 2px dashed #b69898;
+}
+
+.details span {
+        display: block;
+        width: 150px;
+        font-size: 15px;
+        color: black;
+        font-weight: 600;
+        margin-bottom: 30px;
+}
+
+.cartBtn {
+        display: inline-block;
+        text-decoration: none;
+        width: 110px;
+        border: 2px solid black;
+        padding: 3px 5px;
+        border-radius: 4px;
+        font-weight: 500;
+        background-color: #810d5f;
+        transition: 0.5s;
+}
+
+
+
+.cartBtn:hover {
+        background-color: #810d5edd;
+        transform: translateY(-5px);
+}
+
+/* Review form css start from here */
+
+
+.reviewFormSection {
+        margin-top: 100px;
+}
+
+
+.reviewFormContainer {
+        width: 1200px;
+        align-items: center;
+        margin: auto;
+        border: 2px solid #80808038;
+        border-radius: 5px;
+
+}
+
+
+.reviewFormContainer h3 {
+        width: 300px;
+        margin:20px auto;
+        text-align: center;
+        text-transform: uppercase;
+        font-size: 20px;
+        font-weight: 700;
+        border: 2px solid #a52a2a28;
+        padding: 5px;
+}
+
+
+.reviewForm {
+        width: 600px;
+        margin: 30px auto;
+}
+
+
+.reviewInput {
+        margin-bottom: 20px;
+}
+
+
+.reviewInput label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+}
+
+
+
+.reviewInput select{
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #cccccc7b;
+        border-radius: 4px;
+        background-color: #8080801a;       
+}
+
+.reviewInput textarea{
+        width: 100%;
+        height: 80px;
+        padding: 10px;
+        border: 1px solid #cccccc7b;
+        border-radius: 4px;
+        background-color: #8080801a;
+  
+}
+
+.reviewInput input{
+        width: 600px;
+        text-align: center;
+        border: 2px solid gray;
+        padding: 5px 10px;
+        background-color: rgb(76, 181, 249); 
+        font-size: 18px;
+        text-transform: uppercase;
+        font-weight: 600;
+        border-radius: 5px;
+}
+
+
+
+
+.showReviewSection {
+        margin-top: 20px;
+}
+
+
+
+
+
+
+#reviewSlider{
+        width: 1200px;
+        align-items: center;
+        margin:auto;
+        border: .5px solid #80808019;
+
+}
+
+#reviewSlider h2{
+        width: 200px;
+        text-align: center;
+        margin: 20px auto;
+        font-size: 20px;
+        font-weight: 700;
+        font-style: italic;
+        border-bottom: 1px dashed red;
+
+}
+

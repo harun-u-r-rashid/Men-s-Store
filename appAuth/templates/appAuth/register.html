@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Register{% endblock %}
+
+{% block body %}
+
+<main>
+        <section class="regSection">
+
+
+                <div class="regMain">
+                        <div class="companyName">
+                                <img src="{% static 'images/cloth logo.jpg' %}" alt="">
+
+                        </div>
+
+
+                        <div class="regContainer">
+                                <form class="registerForm" action="" method="POST">
+                                        {% csrf_token %}
+
+
+
+                                        <div class="reginput">
+                                                <label class="label" for="username">Username</label>
+                                                {{form.username}}
+
+
+                                        </div>
+
+
+                                        <div class="reginput">
+                                                <label class="label" for="first_name">First Name</label>
+                                               
+                                                {{form.first_name}}
+                                        </div>
+
+                                        <div class="reginput">
+                                                <label class="label" for="last_name">Last Name</label>
+                                               
+
+                                                {{form.last_name}}
+
+
+                                        </div>
+
+
+
+                                        <div class="reginput">
+                                                <label class="label" for="email">Email </label>
+                                               
+                                                {{form.email}}
+                                        </div>
+
+
+
+
+
+
+
+                                        <div class="reginput">
+                                                <label class="label" for="password1">Password</label>
+                                               
+                                                {{form.password1}}
+                                        </div>
+
+                                        <div class="reginput">
+                                                <label class="label" for="password2">Confirm Password</label>
+                                               
+                                                {{form.password2}}
+                                        </div>
+
+
+
+                                        <div class="regBtn">
+                                                <button type="submit">
+                                                        Register
+                                                </button>
+                                        </div>
+
+
+                                
+                                </form>
+                        </div>
+                       
+
+                </div>
+                <div class="account">
+                        <p>Have Account? <a href="{% url 'login' %}">Login</a></p>
+                </div>
+
+
+        </section>
+</main>
+
+
+{% endblock %}

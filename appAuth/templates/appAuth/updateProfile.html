@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Update{% endblock %}
+{% block body %}
+
+<section class="updateSection">
+
+        <div class="formContainer">
+
+                <form class="" action="" method="POST">
+                        {% csrf_token %}
+                        <div class="updateUser">
+                                <label class="label" for="first_name">first name</label>
+                          
+
+                                {{form.first_name}}
+                        </div>
+
+                        <div class="updateUser">
+                                <label class="label" for="last_name">last name</label>
+                                
+                              <p>  {{form.last_name}}</p>
+                        </div>
+
+                        <div class="updateUser">
+                                <label class="label" for="first_name">email name</label>
+                               
+                                <p>{{form.email}}</p>
+                        </div>
+
+                        <div class="updateUser">
+
+                        </div>
+                        <div class="updateBtn">
+                                <input type="submit" value="Update" >
+                        </div>
+                        
+                </form>
+
+        </div>
+
+</section>
+
+{% endblock %}

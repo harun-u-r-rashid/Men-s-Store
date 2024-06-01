@@ -1,0 +1,63 @@
+.heroAreaSection {
+        width: 1600px;
+        margin: auto;
+        min-height: 810px;
+        background:linear-gradient(rgba(0, 0, 0, 0.36), rgba(255, 255, 255, 0.205)), url(../images/heroArea.jpg);
+        background-size: cover;
+        background-position: center top;
+        position: relative;
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        align-items: center;
+}
+
+
+.heroAreaText{
+        margin-left: 50px;
+}
+
+
+.heroAreaText h1 {
+        color: #eee5e5;
+        font-size: 70px;
+        font-weight: bold;
+        line-height: 1.2;
+        letter-spacing: .6rem;
+        margin-bottom: 1.4rem;
+}
+
+.heroAreaText .homeSpan{
+        color: #e2d5de;
+        font-size: 50px;
+        font-weight: bold;
+}
+
+
+.heroAreaText p {
+        color: rgb(212, 226, 243);
+        font-size: 25px;
+        font-weight: 500;
+        margin-bottom: 3rem;
+        letter-spacing: .2rem;
+}
+
+
+.collecttionBtn {
+        display: inline-block;
+        padding: 8px 16px;
+        text-decoration: none;
+        color: white;
+        background-color: rgb(190, 18, 158);
+        font-size: 20px;
+        letter-spacing: 1.5px;
+        word-spacing: 1px;
+        font-weight: 600;
+        border-radius: 5px;
+        transition: all .35s ease;
+
+}
+
+.collecttionBtn:hover {
+        transform: translateX(-5px);
+        background: rgba(190, 18, 158, 0.773);
+}

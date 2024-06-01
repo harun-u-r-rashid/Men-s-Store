@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Account{% endblock %}
+
+{% block body %}
+<section class="accountSection">
+        <div class="asideContainer">
+                <aside>
+                        <ul>
+                                <li>
+                                    <a href="{% url 'history' %}"> Order History</a>
+                                </li>
+                                <li>
+                                       <a href="{% url 'payment' %}"> Payment History</a>
+                                </li>
+                                <li>
+                                       <a href=""> Recieved Order</a>
+                                </li>
+                        </ul>
+                </aside>
+        
+                
+                        <div class="userCard">
+                                
+                                        <div class="imageProfile">
+                                                <img src="{% static 'images/profile.png' %}" alt="">
+        
+                                        </div>
+
+                                        <div class="personalDetails">
+                                               <h3> {{user.first_name}} {{user.last_name}}</h3>
+                                               <h3>{{user.email}}</h3>
+
+                                               <a href="{% url 'update' %}">Update</a>
+                                        </div>
+                        </div>
+        </div>  
+</section>
+{% endblock %}

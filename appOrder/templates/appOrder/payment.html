@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Payment History{% endblock %}
+
+{% block body %}
+
+<section class="paymentSection">
+        <p>your transaction history</p>
+        <div class="cartContent">
+               
+
+
+                <div id="cartItem" class="relative overflow-x-auto shadow-md sm:rounded-lg">
+                        <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                <thead
+                                        class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                                        <tr>
+                                                
+                                                <th scope="col" class="px-6 py-3">
+                                                       payment id
+                                                </th>
+                                                <th scope="col" class="px-6 py-3">
+                                                        payment method
+                                                </th>
+
+                                                <th scope="col" class="px-6 py-3">
+                                                paid amount
+                                                </th>
+
+                                                <th scope="col" class="px-6 py-3">
+                                                        status
+                                                </th>
+
+
+
+
+                                        </tr>
+                                </thead>
+                                <tbody>
+                                        {% for p in payment %}
+                                        <tr
+                                                class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                                
+                                                <td
+                                                        class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
+                                                        {{p.payment_id}}
+                                                </td>
+                                                <td
+                                                        class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
+                                                        {{p.payment_method}}
+
+                                                </td>
+
+                                                <td
+                                                        class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
+                                                        {{p.amount_paid}} <sub>(Tk.)</sub>
+
+                                                </td>
+
+                                                <td
+                                                        class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
+                                                        {{p.status}}
+
+                                                </td>
+
+
+                                        </tr>
+                                        {% endfor %}
+
+                                </tbody>
+                        </table>
+                </div>
+
+               
+
+        </div>
+
+</section>
+
+{% endblock %}

@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+{% block title %}Product Details {% endblock %}
+
+{% block body %}
+
+
+
+<section class="detailsSection">
+
+        <div class="detailsContainer">
+
+                <div class="detailsCard">
+
+                        <div class="image">
+
+                                <a href=""> <img class="img" src="{{product.productImage.url}}" alt=""></a>
+
+                        </div>
+
+                        <div class="details">
+                                <h1>{{product.category.categoryName}}</h1>
+                                <hr>
+
+                                <h2>{{product.productName}}</h2>
+                                <h3 class="price"><sup>Tk.</sup>{{product.price}}</h3>
+                                <p>{{product.productDescription}}</p>
+                                <span class="stock"><sub>IN STOCK_</sub>{{product.stock}}</span>
+
+                                <form method="POST">
+                                        {% csrf_token %}
+                                        <a class="cartBtn" href="{% url 'addCart' product.id %}">Add To Cart</a>
+                                </form>
+
+                        </div>
+
+                </div>
+
+        </div>
+
+</section>
+
+<section class="reviewFormSection">
+
+        <div class="reviewFormContainer">
+                <h3>Add your review</h3>
+                <form class="reviewForm" action="" method="POST">
+                        {% csrf_token %}
+
+
+                        <div class="reviewInput">
+                                <label for="{{ form.rating.id_for_label }}">Rating</label>
+                                {{ form.rating }}
+
+                        </div>
+
+                        <div class="reviewInput">
+                                <label for="{{ form.review.id_for_label }}">Review</label>
+                                {{ form.review }}
+                        </div>
+
+
+                        <div class="reviewInput">
+
+                                <input type="submit" value="submit">
+                              
+                        </div>
+
+                                
+                </form>
+        </div>
+
+</section>
+
+<section class="showReviewSection">
+
+       
+
+        <div id="reviewSlider" class="swiffy-slider slider-item-show3 slider-nav-dark slider-nav-visible slider-nav-outside slider-item-snapstart my-3 slider-nav-sm my-xl-5 slider-indicators-square slider-indicators-outside slider-indicators-dark slider-nav-animation-slideup slider-nav-animation slider-item-last-visible">
+                <h2>Customer Reviews</h2>
+                <div class="slider-container">
+                        {% for review in reviews %}
+                    <div class="">
+                        <div>
+                            <h3 class="mb-0 h6" style="color:#DF1E1E;">{{review.rating}}</h3>
+                            <strong>{{review.review}}</strong> 
+                            <div>
+                                <small class="text-muted text-uppercase">{{review.user}}</small>
+                            </div>
+                           
+                        </div>
+                    </div>
+                    {% endfor %}
+                     
+                </div>
+            
+                <button type="button" class="slider-nav" aria-label="Go left"></button>
+                <button type="button" class="slider-nav slider-nav-next" aria-label="Go left"></button>
+            
+                <div class="slider-indicators" style="justify-content:right;margin-left: 3rem;">
+                    <button class="" aria-label="Go to slide"></button>
+                    <button aria-label="Go to slide" class=""></button>
+                    <button aria-label="Go to slide" class=""></button>
+                    <button aria-label="Go to slide" class="active"></button>
+                </div>
+            
+            </div>
+
+      
+
+</section>
+
+{% endblock %}

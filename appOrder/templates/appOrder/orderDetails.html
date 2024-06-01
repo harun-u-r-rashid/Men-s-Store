@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Order Details{% endblock %}
+{% block body %}
+
+
+<section class="orderDetail">
+
+        <div class="orderDetailContainer">
+                <div class="singleDetail">
+                        <h3>Name :</h3>
+                        <h2>{{order.first_name}} {{order.last_name}}</h2>
+                </div>
+                <div class="singleDetail">
+                        <h3>Email :</h3>
+                        <h2>{{order.email}}</h2>
+                </div>
+                <div class="singleDetail">
+                        <h3>Phone :</h3>
+                        <h2>{{order.phone}}</h2>
+                </div>
+                <div class="singleDetail">
+                        <h3>Address :</h3>
+                        <h2>{{order.address}} </h2>
+                </div>
+
+                <div class="singleDetail">
+                        <h3>Country :</h3>
+                        <h2>{{order.country}} </h2>
+                </div>
+
+        
+                <div class="singleDetail">
+                        <h3>City :</h3>
+                        <h2>{{order.city}} </h2>
+                </div>
+
+                <div class="singleDetail">
+                        <h3>Order Date :</h3>
+                        <h2>{{order.createDate}} </h2>
+                </div>
+
+                <div>
+                        {% for order_product in orderProducts %}
+                        <div class="singleDetail">
+                                <h3>Product :</h3>
+                                <h2>{{order_product.product.productName}}</h2>
+                        </div>
+
+                        <div class="singleDetail">
+                                <h3>Quantity :</h3>
+                                <h2>{{order_product.quantity}}</h2>
+                        </div>
+                        {% endfor %}
+                </div>
+
+                <div class="singleDetail">
+                        <h3>Sub Total :</h3>
+                        <h2>{{total}} <sub>(Tk.)</sub> </h2>
+                </div>
+                <div class="singleDetail">
+                        <h3>Tax :</h3>
+                        <h2>{{tax}} <sub>(Tk.)</sub> </h2>
+                </div>
+
+                <div class="singleDetail">
+                        <h3>Total :</h3>
+                        <h2>{{grand}} <sub>(Tk.)</sub> </h2>
+                </div>
+        </div>
+        {% for orderProduct in orderProducts %}
+        {% endfor%}
+
+
+</section>
+
+{% endblock %}

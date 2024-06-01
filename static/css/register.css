@@ -1,0 +1,84 @@
+* {
+        margin: 0;
+        padding: 0;
+}
+
+
+.regSection {
+        width: 1400px;
+        margin: 20px auto;
+}
+
+
+
+.regMain {
+        width: 800px;
+        margin: auto;
+        align-items: center;
+        border: 0.5px solid rgba(128, 128, 128, 0.248);
+}
+
+
+.reginput{
+        width: 500px;
+        margin: auto;
+}
+.reginput label{
+        display: block;
+        margin-top: 8px;
+        margin-bottom: 2px;
+        font-weight: bold;
+}
+
+
+
+.reginput input{
+        width: 100%;
+        padding: 10px;
+        border-radius: 4px;
+        background-color: #8080801a; 
+        height: 33px;   
+        border: none;   
+}
+
+
+
+
+
+.regBtn button{
+        display: block;
+        width: 500px;
+        text-align: center;
+        margin: 30px auto;
+        border-radius: 10px;
+        background-color: rgb(76, 181, 249); 
+        padding: 6px;
+        font-size: 17px;
+        font-weight: 700;
+        color: white;
+}
+
+
+.account {
+        width: 800px;
+        margin: 30px auto;
+        align-items: center;
+        border: 0.5px solid rgba(128, 128, 128, 0.248);
+}
+
+
+.account p{
+        width: 400px;
+        margin: auto;
+        text-align: center;
+        padding: 25px;
+        font-size: 15px;
+}
+
+
+
+.account a{
+        text-decoration: none;
+        color: rgb(15, 59, 116);
+        font-weight: 600;
+}

@@ -1,0 +1,136 @@
+
+
+
+ .productSection{
+        width: 1500px;
+        margin: 50px auto;
+ }
+
+ .productDropdownMenu{
+        display: flex;
+        justify-content: center;
+        gap: 50px;
+ }
+
+.dropdownContainer{
+        width: 200px;
+      
+        
+}
+
+
+#dropdown{
+        width: 100%;         
+}
+
+#dropdown h3{
+        text-transform: uppercase;
+        color: gray;
+        font-weight: 600;
+        margin-bottom: 30px;
+}
+
+#dropdown li a{
+        display: block;
+        text-decoration: none;
+        color: black;
+        font-weight: bold;
+        padding: 3px;
+        margin: 3px;
+}
+
+.dropMenu button{
+        margin: 0 auto;
+}
+
+.dropdownContainer button{
+        display: flex;
+        justify-content: center;
+
+}
+
+.paginatorProductContainer{
+        width: 1200px;
+}
+
+ .productContainer{
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+ }
+
+
+
+ .productCard{
+        width: 250px;
+        height: 350px;    
+ }
+
+ .productCard img{
+       width: 90%;
+       height: 220px;
+       margin: 2px auto;
+       opacity: 0.8;
+       transition: 0.5s;
+       overflow: hidden;
+ } 
+
+ .productCard img:hover{
+        transform: translate(10px);
+        opacity: 1;
+ }
+
+
+ /* Product details */
+ .productDetails{
+        width: 90%;
+        height: 100px;
+        margin: 3px auto;
+        
+ }
+
+
+ .productDetails h3{
+        text-align: center;
+        font-size: 15px;
+        letter-spacing: 1px;
+ }
+
+ .productDetails h4{
+        text-align: center;
+        font-size: 16px;
+        font-weight: 700;
+ }
+
+
+ .productDetails a{
+        display: flex;
+        justify-content: center;
+        width: 100px;
+        text-decoration: none;
+        text-align: center;
+        margin: 5px auto;
+        border: 2px solid black;
+        text-transform: uppercase;
+        font-size: 10px;
+        font-weight: bold;
+        padding: 3px;
+        transition: 0.5s;
+
+ }
+
+
+ .productDetails a:hover{
+        color: white;
+        background-color: black;
+ }
+
+ 
+ .pagination{
+        margin-top: 40px;
+        align-items: center;
+        display: flex;
+        justify-content: center; 
+}
+
+
+

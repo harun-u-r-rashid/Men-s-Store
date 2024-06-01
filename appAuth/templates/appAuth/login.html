@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+{% load static %}
+{%block title%}Login{%endblock%}
+
+{%block body%}
+
+<main>
+        <section class="loginSection">
+
+                <div class="loginMain">
+
+                        <div class="companyName">
+                                <img src="{% static 'images/cloth logo.jpg' %}" alt="">
+
+                        </div>
+
+
+                        <div class="loginContainer">
+
+
+                                <form class="loginForm" action="" method="POST">
+
+                                        {% csrf_token %}
+
+                                        <div id="input" class="input">
+                                                <input type="text" placeholder="Username" name="username">
+                                        </div>
+
+
+                                        <div class="input">
+                                                <input type="password" placeholder="Password" name="password">
+                                        </div>
+
+
+
+
+                                        <div class="loginBtn">
+
+                                                <button class="Btn">Login</button>
+
+                                        </div>
+
+                                </form>
+
+                                <div class="orTitle">
+                                        <h3>----------------OR----------------</h3>
+                                </div>
+
+
+                                <div class="socialContainer">
+                                        <div class="socialContent">
+
+                                                <div class="loginIcon">
+                                                        <a href="{% url 'social:begin' 'google-oauth2' %}"><i
+                                                                        class="fa-brands fa-google"></i></a>
+                                                </div>
+
+                                                <div class="loginTitle">
+                                                        <a href="{% url 'social:begin' 'google-oauth2' %}">
+                                                                <h3>Log in with google</h3>
+                                                        </a>
+
+
+                                                </div>
+
+
+                                                <!-- <button class="btn btn-primary mb-2">
+                                                <a href="{% url 'social:begin' 'facebook' %}">Login with Facebook</a>
+                                            </button>
+                                            <button class="btn btn-info mb-2">
+                                                <a href="#">Login with LinkedIn</a>
+                                            </button> -->
+                                        </div>
+                                </div>
+
+                                <div class="resetPassword">
+
+                                        <a href="{% url 'reset_password' %}">Forget password?</a>
+
+                                </div>
+
+
+
+
+
+                        </div>
+
+
+                </div>
+                <div class="haveAccount">
+                        <p>Don't have an account? <a href="{% url 'register' %}">Register</a></p>
+                </div>
+
+        </section>
+</main>
+
+
+{%endblock%}

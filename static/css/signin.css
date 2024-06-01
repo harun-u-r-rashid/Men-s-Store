@@ -1,0 +1,168 @@
+* {
+        margin: 0;
+        padding: 0;
+}
+
+
+.loginSection {
+        width: 1400px;
+        margin: 20px auto;
+}
+
+
+
+.loginMain {
+        width: 600px;
+        margin: auto;
+        align-items: center;
+        border: 0.5px solid rgba(128, 128, 128, 0.248);
+}
+
+
+.loginContainer {
+        width: 99%;
+        margin: 0 auto;   
+}
+
+.companyName{
+        width: 100px;
+        margin: 30px auto;
+        border: 2px solid gray;
+}
+
+
+.loginForm {
+        background-repeat: no-repeat;
+        background-size: cover;
+        border-radius: 20px;     
+}
+
+
+
+.input{
+        width: 400px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 10px auto;    
+}
+
+.input input{
+        width: 100%;
+        border: 1px solid rgba(128, 128, 128, 0.657);
+        border-radius: 3px;
+        margin-top: 10px;
+        height: 30px;
+        background-color: #8080802e;
+        font-size: 12px; 
+        font-weight: 500;                
+}
+
+.loginBtn{
+        width: 400px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 30px auto;   
+        background-color: rgb(76, 181, 249); 
+        border-radius: 8px;
+}
+
+.loginBtn button{
+       text-align: center;
+       padding: 5px ;
+       font-size: 15px;
+       font-weight: bold;
+       color: white;
+                
+}
+
+#input input{
+        margin-top: 10px;
+}
+
+.orTitle{
+        width: 400px;
+        margin: auto;
+}
+
+
+/* OR title css */
+.orTitle h3{
+        text-align: center;
+}
+
+
+/* social container css */
+
+.socialContainer{
+        width: 400px;
+        margin: 30px auto 15px auto;
+}
+
+.socialContent{
+        display: flex;
+        justify-content: center;
+        gap: 5px;
+}
+
+.loginIcon{
+       
+        display: flex;
+        justify-content: center;
+        align-items: center;
+}
+.loginIcon i{
+        color: #385185;
+        font-size: 15px;
+        padding: 3px;
+        font-weight: 500;
+}
+
+
+.loginTitle h3{
+        font-size: 15px;
+        color: #385185;
+        padding: 3px;
+        font-weight: 500;
+
+}
+
+
+.resetPassword{
+        width: 400px;
+        margin: 10px auto;
+      
+}
+
+.resetPassword a{
+        display: block;
+        text-align: center;
+       font-size: 12px;
+       margin-bottom: 20px;
+}
+
+
+
+.haveAccount {
+        width: 600px;
+        margin: 30px auto;
+        align-items: center;
+        border: 0.5px solid rgba(128, 128, 128, 0.248);
+}
+
+.haveAccount p{
+        width: 400px;
+        margin: auto;
+        text-align: center;
+        padding: 25px;
+        font-size: 15px;
+}
+
+
+
+.haveAccount a{
+        text-decoration: none;
+        color: rgb(15, 59, 116);
+        font-weight: 600;
+}

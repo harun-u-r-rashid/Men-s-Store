@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Reset Pasword{% endblock %}
+
+{% block body %}
+<section>
+<div class="resetForm">
+      <div class="resetFormCard">
+      <p class="resetFormTitle">Please enter your new password twice</p>
+      <form action="." method="post">
+        <div class="inputContainer">
+          {{ form.as_p }}
+          {% csrf_token %}
+        </div>
+      
+       <p><input type="submit" value="Change my password"/></p>
+      </form>
+      </div> 
+    </div> 
+ 
+
+</section>
+{% endblock %}
+

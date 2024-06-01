@@ -1,0 +1,39 @@
+/* .socialContainer{
+        width: 500px;
+        margin: 50px auto;
+        padding: 4px;
+        background-color: #faebd796;
+        border-radius: 4px;
+        transition: 0.5s;
+}
+
+.socialContainer:hover{
+        background-color: #faebd755;
+       
+}
+
+.socialContent a{
+        width: 100px;
+        margin: 10px auto;
+        color: black;
+        font-size: 20px;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        transition: 0.5s;
+}
+
+.socialContent a:hover{
+        color: brown;
+        transform: translate(4px);
+}
+
+.socialContent h3{
+        text-align: center;
+        text-transform: uppercase;
+        font-size: 10px;
+        margin: 5px;
+}
+ */

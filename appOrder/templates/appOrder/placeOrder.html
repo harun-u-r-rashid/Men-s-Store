@@ -1,0 +1,164 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Order{% endblock %}
+{% block body %}
+
+<section class="cartSection">
+        <div class="cartContainer">
+                <div class="continueShopping">
+                        <a href="{% url 'store' %}"> <i class="fa-solid fa-backward-fast"></i>Continue Shopping</a>
+                </div>
+
+                <div class="cartContent">
+
+
+                        <div id="cartItem" class="relative overflow-x-auto shadow-md sm:rounded-lg">
+                                <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                        <thead
+                                                class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                                                <tr>
+                                                        <th scope="col" class="px-16 py-3">
+                                                                Image
+                                                        </th>
+                                                        <th scope="col" class="px-6 py-3">
+                                                                Product
+                                                        </th>
+                                                        <th scope="col" class="px-6 py-3">
+                                                                Quantity
+                                                        </th>
+
+                                                        <th scope="col" class="px-6 py-3">
+                                                                Price <sub>(per unit)</sub>
+                                                        </th>
+
+                                                        <th scope="col" class="px-6 py-3">
+                                                                Price <sub>(total)</sub>
+                                                        </th>
+
+
+
+
+                                                </tr>
+                                        </thead>
+                                        <tbody>
+                                                {% for item in cart_items %}
+                                                <tr
+                                                        class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                                        <td id="image" class="p-4">
+                                                                <img class="cartImage"
+                                                                        src="{{item.product.productImage.url}}"
+                                                                        class="w-16 md:w-32 max-w-full max-h-full"
+                                                                        alt="Apple Watch">
+                                                        </td>
+                                                        <td
+                                                                class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
+                                                                {{item.product.productName}}
+                                                        </td>
+                                                        <td
+                                                                class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
+                                                                {{item.quantity}}
+
+                                                        </td>
+
+
+
+                                                        <td
+                                                                class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
+                                                                {{item.product.price}} Tk.
+
+                                                        </td>
+
+                                                        <td
+                                                                class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
+                                                                {{item.sub_total}} Tk.
+
+                                                        </td>
+
+
+                                                </tr>
+                                                {% endfor %}
+
+                                        </tbody>
+                                </table>
+                        </div>
+
+                        <div class="totalCalculation">
+                                <h2>cart total</h2>
+                                <div class="subTotal">
+                                        <h3>sub total</h3>
+                                        <h3>{{total}} <sub>Tk.</sub></h3>
+                                </div>
+
+                                <div class="tax">
+                                        <h3>tax</h3>
+                                        <h3>{{tax}} <sub>Tk.</sub></h3>
+                                </div>
+
+                                <div class="total">
+                                        <h3>total</h3>
+                                        <h3>{{grand_total}} <sub>Tk.</sub></h3>
+                                </div>
+
+                        </div>
+
+                </div>
+
+
+        </div>
+
+        <div class="orderForm">
+                <h3>Billing Address</h3>
+
+                <form class="formContainer" action="" method="POST">
+                        {% csrf_token %}
+
+                        <div class="orderInput">
+                                <input type="text" name="first_name" placeholder="First Name" required>
+                        </div>
+                        <div class="orderInput">
+                                <input type="text" name="last_name" placeholder="Last Name" required>
+                        </div>
+
+
+
+                        <div class="orderInput">
+                                <input type="email" name="email" placeholder="Email" required>
+
+                        </div>
+
+                        <div class="orderInput">
+                                <input type="number" name="phone" placeholder="Phone" required>
+                        </div>
+
+
+
+
+                        <div class="orderInput">
+                                <input type="text" name="country" placeholder="Country" required>
+
+                        </div>
+
+                        <div class="orderInput">
+                                <input type="text" name="city" placeholder="City" required>
+
+                        </div>
+
+
+
+                        <div class="orderInput">
+                                <input type="text" name="address" placeholder="Adress" required>
+
+                        </div>
+                        <div class="orderInput">
+                                <button type="submit" class="checkout">Order</button>
+                        </div>
+
+                </form>
+
+        </div>
+
+</section>
+
+
+
+{% endblock %}
