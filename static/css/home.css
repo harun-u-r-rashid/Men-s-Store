@@ -1,6 +1,6 @@
 .heroAreaSection {
         width: 1600px;
-        margin: auto;
+        margin: 100px auto;
         min-height: 810px;
         background:linear-gradient(rgba(0, 0, 0, 0.36), rgba(255, 255, 255, 0.205)), url(../images/heroArea.jpg);
         background-size: cover;
@@ -9,6 +9,7 @@
         display: grid;
         grid-template-columns: repeat(1, 1fr);
         align-items: center;
+        z-index: 99;
 }
 
 

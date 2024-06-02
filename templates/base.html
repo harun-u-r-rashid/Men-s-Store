@@ -16,7 +16,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
     <!-- swiffyslider link -->
-    <link href="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/css/swiffy-slider.min.css" rel="stylesheet" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/css/swiffy-slider.min.css" rel="stylesheet"
+        crossorigin="anonymous">
 
 
     <!-- Internal css link -->
@@ -39,65 +40,26 @@
     <header>
         <h3>free shipping all over bangladesh</h3>
         <nav>
-            <div class="navContainer">
-                <div class="logoHome">
-                    <div class="navLogo">
-                        <img src="{% static 'images/logoNav.png' %}" alt="">
-
-                    </div>
-                    <div class="homeNav">
-                        <li><a href="{% url 'home' %}">Home</a></li>
-                    </div>
-
-                </div>
-
-                <div class="navList">
-                    <ul class="navUl">
-                        <div class="navUlDiv">
-
-                            <!-- <li><a href="">About</a></li>
-                        <li><a href="">Contact</a></li> -->
-                            {% if request.user.is_authenticated %}
-
-                            <div class="authenticated">
-                                <small>Welcome {{user.username}}</small>
-                                <div>
-                                    <!-- <li><a href="{% url 'account' %}">Account</a></li> -->
-                                      <li><a href="{% url 'account' %}">Account</a></li>
-                                    <li><a href="{% url 'logout' %}">Logout</a></li>
-                                </div>
-
-                            </div>
-
-                            <div>
-                                <li><a href="{% url 'cart' %}"><i class="fa-solid fa-cart-shopping"></i></a></li>
-                            </div>
-
-
-                            {% else %}
-
-                            <div class="notAuthenticated">
-                                <small>Welcome guest</small>
-                                <div>
-                                    <li><a href="{% url 'login' %}">Login</a></li>
-                                    <li><a href="{% url 'register' %}">Register</a></li>
-                                </div>
-                            </div>
-
-                            {% endif %}
-
-                            
-
-
-
-                        </div>
-
-
-                    </ul>
-                </div>
+            <div class="navLogo">
+                <img src="{% static 'images/logoNav.png' %}" alt="">
             </div>
+            <input type="checkbox" id="click">
+            <label for="click" class="menuBtn"> <i class="fas fa-bars"></i> </label>
+            <ul class="navUl">
+                <li><a href="{% url 'home' %}">Home</a></li>
+                {% if request.user.is_authenticated %}
+                
+                <li><a href="{% url 'account' %}">Account</a></li>
+                <!-- <li><a href="{% url 'logout' %}">Logout</a></li> -->
+                <li><a href="{% url 'cart' %}"><i class="fa-solid fa-cart-shopping"></i></a></li>
+                {% else %}
+                <li><a href="{% url 'login' %}">Login</a></li>
+                <li><a href="{% url 'register' %}">Register</a></li>
+                {% endif %}
+            </ul>
         </nav>
     </header>
+    
 
     {% block body %}{% endblock %}
 
@@ -155,7 +117,7 @@
                 <div>
                     <span>Terms & conditions</span>
                 </div>
-                <div> 
+                <div>
                     <span>Privacy Policy</span>
                 </div>
                 <div>
@@ -189,7 +151,8 @@
     </footer>
 
     <!-- sfiffy -->
-    <script src="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/js/swiffy-slider.min.js" crossorigin="anonymous" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/js/swiffy-slider.min.js" crossorigin="anonymous"
+        defer></script>
     <!-- Tailwind -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
 </body>
