@@ -157,6 +157,76 @@ nav {
 }
 
 
+@media only screen and (max-width: 400px) and (min-width: 370px) {
+        nav {
+                display: flex;
+                background-color: #a8a2a2;
+                height: 80px;
+                width: 100%;
+                justify-content: space-between;
+                padding: 10px 30px;
+                align-items: center;
+                position: fixed;
+                top: 30px;
+                z-index: 100;
+        
+        }
+        .navUl {
+
+                position: fixed;
+                top: 108px;
+                left: -100%;
+                background-color: #a8a2a2ab;
+                height: 25vh;
+                width: 100%;
+                flex-direction: column;
+                padding: 20px;
+                text-align: center;
+                transition: 0.8s;
+        }
+
+        .navUl li {
+                margin: 5px 0;
+                list-style: none;
+
+        }
+
+        .navUl li a {
+                width: 100px;
+                display: block;
+                font-size: 15px;
+                text-align: center;
+                text-decoration: none;
+                font-weight: bold;
+                text-transform: uppercase;
+                color: black;
+                margin: auto;
+                align-items: center;
+                padding: 5px;
+                border-radius: 4px;
+                transition: 0.5s;
+        }
+
+        .navUl li a:hover {
+                color: white;
+                background-color: black;
+                border-radius: 4px;
+        }
+
+        #click:checked~.menuBtn i::before {
+                content: "\f00d";
+        }
+
+        #click:checked~.navUl {
+                left: 0%;
+        }
+
+        .menuBtn {
+                display: block;
+        }
+}
+
+
 
 
 
