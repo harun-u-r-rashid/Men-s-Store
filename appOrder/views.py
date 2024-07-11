@@ -85,6 +85,12 @@ def checkout(request):
         
 
         for item in cart_items:
+                # print('item',item)
+                # print('item',item.product.price)
+                if(item.product.is_discount):
+                              item.product.price=item.product.discount_price()
+                # print('item',item)
+                print('item',item.product.price)
                 total += item.product.price * item.quantity
 
         tax = (2*total)/100
@@ -117,6 +123,9 @@ def orderDetails(request, orderId):
        orderProducts = OrderProduct.objects.filter(order=order)
        total = 0
        for orderProduct in orderProducts:
+              if(orderProduct.product.is_discount): #This may be give wrong have to check after render
+                              orderProduct.product.price=orderProduct.product.discount_price()
+        #       print('order',orderProduct)
               total += orderProduct.product.price*orderProduct.quantity
        tax = (total/100)*2
 

@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block title %}Product Details {% endblock %}
+
+{% block body %}
+
+
+
+<section class="detailsSection">
+
+        <div class="detailsContainer">
+
+                <div class="detailsCard">
+
+                        <div class="image">
+
+                                <a href=""> <img class="img" src="{{product.productImage.url}}" alt=""></a>
+
+                        </div>
+
+                        <div class="details">
+                                <h1>{{product.category.categoryName}}</h1>
+                                <hr>
+
+                                <h2>{{product.productName}}</h2>
+                                <h3 class="price"><sup>Tk.</sup>{{product.price}}</h3>
+                                <p>{{product.productDescription}}</p>
+                                <span class="stock"><sub>IN STOCK_</sub>{{product.stock}}</span>
+
+                                <form method="POST">
+                                        {% csrf_token %}
+                                        <a class="cartBtn" href="{% url 'addCart' product.id %}">Add To Cart</a>
+                                </form>
+
+                        </div>
+
+                </div>
+
+        </div>
+
+</section>
+
+
+
+
+{% endblock %}

@@ -1,136 +1,171 @@
+.productSection {
+  margin: 50px 10px;
+  padding: 15px;
+  text-align: center;
+  background-color: #e9e0e0a1;
+}
+
+.storeProductSection{
+     
+
+}
+.productDropdownMenu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+#dropdown {
+  width: 100%;
+  border-radius: 5px;
+  padding: 30px;
+  background-color: #fff;
+}
+
+#dropdown h3 {
+  text-transform: uppercase;
+
+  color: gray;
+  font-weight: 600;
+
+  margin-bottom: 20px;
+  text-align: center;
+}
+.singleDropdown {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  gap: 30px;
+}
+
+.singleDropdown a {
+  text-decoration: none;
+  background-color: #d7d5d2a8;
+  padding: 5px 10px;
+  font-size: 1.25rem;
+  transition: 03s all ease-in-out;
+}
+
+.singleDropdown a:hover {
+  background-color: #f0f0f0;
+}
+
+.productCard {
+  border-radius: 5px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  transition: 0.3s all ease-in-out;
+  padding: 20px 0;
+}
 
 
+.productCard img {
+  width: 400px;
+  height: 400px;
+  object-fit: cover;
+  transition: 0.3s all ease-in-out;
+  opacity: 0.9;
+  padding: 10px;
+}
 
- .productSection{
-        width: 1500px;
-        margin: 120px auto;
- }
+.productCard img:hover {
+  transform: scale(1.05);
+  opacity: 1;
 
- .productDropdownMenu{
-        display: flex;
-        justify-content: center;
-        gap: 50px;
- }
+}
 
+#dropdown li a:hover {
+  background-color: #f0f0f0;
+}
+
+.paginatorProductContainer {
+  width: 100%;
+  max-width: 1200px;
+}
+
+.productContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+
+}
+
+.productDetails {
+  padding: 10px;
+
+}
+
+.productDetails h3 {
+  text-align: center;
+  font-size: 1.2em;
+  letter-spacing: 1px;
+  margin: 10px 0;
+}
+
+.productDetails h4 {
+  text-align: center;
+  font-size: 1.3em;
+  font-weight: 700;
+  margin: 10px 0;
+}
+
+.productDetails a {
+ border: 1px solid gray;
+ border-radius: 2px;
+ text-transform: uppercase;
+ text-decoration: none;
+ padding: 5px 8px;
+ transition: 0.5s all ease-in-out;
+ font-weight: 600;
+}
+
+.productDetails a:hover {
+  color: white;
+  background-color: black;
+}
+
+.pagination {
+  margin: 20px 0;
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+
+.pagination ul {
+  display: flex;
+  list-style: none;
+  padding: 0;
+}
+
+.pagination li {
+  margin: 0 5px;
+}
+
+.pagination a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 15px;
+  color: gray;
+  background-color: white;
+  border: 1px solid gray;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.pagination a:hover {
+  background-color: gray;
+  color: white;
+}
+
+
+/* =======Discount Store============= */
 .dropdownContainer{
-        width: 200px;
-      
-        
+       margin-top: 90px;
 }
-
-
-#dropdown{
-        width: 100%;         
-}
-
-#dropdown h3{
-        text-transform: uppercase;
-        color: gray;
-        font-weight: 600;
-        margin-bottom: 30px;
-}
-
-#dropdown li a{
-        display: block;
-        text-decoration: none;
-        color: black;
-        font-weight: bold;
-        padding: 3px;
-        margin: 3px;
-}
-
-.dropMenu button{
-        margin: 0 auto;
-}
-
-.dropdownContainer button{
-        display: flex;
-        justify-content: center;
-
-}
-
-.paginatorProductContainer{
-        width: 1200px;
-}
-
- .productContainer{
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
- }
-
-
-
- .productCard{
-        width: 250px;
-        height: 350px;    
- }
-
- .productCard img{
-       width: 90%;
-       height: 220px;
-       margin: 2px auto;
-       opacity: 0.8;
-       transition: 0.5s;
-       overflow: hidden;
- } 
-
- .productCard img:hover{
-        transform: translate(10px);
-        opacity: 1;
- }
-
-
- /* Product details */
- .productDetails{
-        width: 90%;
-        height: 100px;
-        margin: 3px auto;
-        
- }
-
-
- .productDetails h3{
-        text-align: center;
-        font-size: 15px;
-        letter-spacing: 1px;
- }
-
- .productDetails h4{
-        text-align: center;
-        font-size: 16px;
-        font-weight: 700;
- }
-
-
- .productDetails a{
-        display: flex;
-        justify-content: center;
-        width: 100px;
-        text-decoration: none;
-        text-align: center;
-        margin: 5px auto;
-        border: 2px solid black;
-        text-transform: uppercase;
-        font-size: 10px;
-        font-weight: bold;
-        padding: 3px;
-        transition: 0.5s;
-
- }
-
-
- .productDetails a:hover{
-        color: white;
-        background-color: black;
- }
-
- 
- .pagination{
-        margin-top: 40px;
-        align-items: center;
-        display: flex;
-        justify-content: center; 
-}
-
-
-

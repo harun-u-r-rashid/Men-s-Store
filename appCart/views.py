@@ -18,6 +18,7 @@ def get_create_session(request):
 def cart(request):
         cart_items = None
         tax = 0
+        discount_total=0
         total = 0
         grand_total = 0
         session_id = get_create_session(request)
@@ -34,6 +35,11 @@ def cart(request):
                         else:
                                 combined_quantities[product_id] = cart_item.quantity
                 for item in cart_items:
+                        # print(item.product.is_discount)
+                        # print(item.product.price)
+                        if(item.product.is_discount):
+                              item.product.price=item.product.discount_price()
+                        # print(item.product.price)
                         total += item.product.price * item.quantity
         else:
                 cartid = Cart.objects.get(cart_id = session_id) # model ke ber kore anlam
@@ -50,64 +56,6 @@ def cart(request):
         return render(request, 'appCart/cart.html' ,{'cart_items' : cart_items, 'tax' : tax,'total' : total, 'grand_total' : grand_total})
 
 
-
-
-
-
-# def addToCart(request, product_id):
-#     product = Product.objects.get(id=product_id)
-#     session_id = get_create_session(request) 
-
-#     if request.user.is_authenticated:
-#         cart_item = CartItem.objects.filter(product=product, user = request.user).exists()
-#         if cart_item:
-#             item = CartItem.objects.get(product=product)
-#             item.quantity += 1
-#             item.save()
-#         else :
-#             cartid = Cart.objects.get(cart_id = session_id)
-#             item = CartItem.objects.create(
-#                 cart = cartid,
-#                 product = product,
-#                 quantity = 1,
-#                 user = request.user
-#             )
-#             item.save()
-#     else:
-#           return redirect('login')
-#         # print(session_id)
-#         # cart_id = Cart.objects.filter(cart_id = session_id).exists()
-#         # if cart_id:
-#         #     cartid = Cart.objects.get(cart_id = session_id)
-#         #     cart_item = CartItem.objects.filter(product=product, cart = cartid).exists()
-#         #     if cart_item:
-#         #         item = CartItem.objects.get(product=product, cart= cartid)
-#         #         item.quantity += 1
-#         #         item.save()
-#         #     else :
-#         #         cartid = Cart.objects.get(cart_id = session_id)
-#         #         print("adfasdf ", cartid, session_id)
-#         #         item = CartItem.objects.create(
-#         #             cart = cartid,
-#         #             product = product,
-#         #             quantity = 1
-#         #         )
-#         #         item.save()
-#         # else:
-            
-#         #     cart = Cart.objects.create(
-#         #     cart_id = session_id
-#         #     )
-#         #     cart.save()
-#         #     cartid = Cart.objects.get(cart_id = session_id)
-#         #     item = CartItem.objects.create(
-#         #           cart = cartid, 
-#         #           product = product,
-#         #           quantity = 1
-#         #     )
-#         #     item.save()
-    
-#     return redirect('cart')
 
 
 def addToCart(request, product_id):
@@ -190,6 +138,66 @@ def addToCart(request, product_id):
         #     item.save()
     
     return redirect('cart')
+
+
+
+
+
+
+# def addToCart(request, product_id):
+#     product = Product.objects.get(id=product_id)
+#     session_id = get_create_session(request) 
+
+#     if request.user.is_authenticated:
+#         cart_item = CartItem.objects.filter(product=product, user = request.user).exists()
+#         if cart_item:
+#             item = CartItem.objects.get(product=product)
+#             item.quantity += 1
+#             item.save()
+#         else :
+#             cartid = Cart.objects.get(cart_id = session_id)
+#             item = CartItem.objects.create(
+#                 cart = cartid,
+#                 product = product,
+#                 quantity = 1,
+#                 user = request.user
+#             )
+#             item.save()
+#     else:
+#           return redirect('login')
+#         # print(session_id)
+#         # cart_id = Cart.objects.filter(cart_id = session_id).exists()
+#         # if cart_id:
+#         #     cartid = Cart.objects.get(cart_id = session_id)
+#         #     cart_item = CartItem.objects.filter(product=product, cart = cartid).exists()
+#         #     if cart_item:
+#         #         item = CartItem.objects.get(product=product, cart= cartid)
+#         #         item.quantity += 1
+#         #         item.save()
+#         #     else :
+#         #         cartid = Cart.objects.get(cart_id = session_id)
+#         #         print("adfasdf ", cartid, session_id)
+#         #         item = CartItem.objects.create(
+#         #             cart = cartid,
+#         #             product = product,
+#         #             quantity = 1
+#         #         )
+#         #         item.save()
+#         # else:
+            
+#         #     cart = Cart.objects.create(
+#         #     cart_id = session_id
+#         #     )
+#         #     cart.save()
+#         #     cartid = Cart.objects.get(cart_id = session_id)
+#         #     item = CartItem.objects.create(
+#         #           cart = cartid, 
+#         #           product = product,
+#         #           quantity = 1
+#         #     )
+#         #     item.save()
+    
+#     return redirect('cart')
 
 
 

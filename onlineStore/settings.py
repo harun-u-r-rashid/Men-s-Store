@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'appOrder',
     'appCart',
     'appCategory',
+    'appOffer',
     'sslserver', #add this
     'social_django', #add this, social auth app django
 ]

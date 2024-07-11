@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% load static %}
+{% block title %}Store{% endblock %}
+{% block body %}
+
+
+
+<section class="productSection">
+
+    <div class="productDropdownMenu">
+
+            <div class="dropdownContainer">
+                    <div id="dropdown">
+                        <h3>Product categories</h3>
+                        <div class="singleDropdown">
+                        <a href="{% url 'discount_store' %}">All</a>
+                            {% for category in categories %}
+                                
+                                    <a href="{% url 'discount_store_by_category' category.slug %}">{{ category.categoryName }}</a>
+                              
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="paginatorProductContainer">
+                    <div class="productContainer">
+                        {% if discount_products %}
+                            {% for item in discount_products %}
+                                <div class="productCard">
+                                    <img src="{{ item.productImage.url }}" alt="{{ item.productName }}">
+                                    <div class="productDetails">
+                                        <h3>{{ item.productName }}</h3>
+                                        <h4>{{ item.price }} Tk.</h4>
+                                        <a class="productDetailsBtn" href="{% url 'productDetail' item.category.slug item.slug %}">Select Option</a>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        {% else %}
+                            <div>
+                                <h3>No products available</h3>
+                            </div>
+                        {% endif %}
+                    </div>
+                
+            
+                </div>
+                
+         
+
+    </div>
+
+
+</section>
+
+
+{% endblock %}

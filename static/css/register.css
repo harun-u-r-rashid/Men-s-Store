@@ -1,84 +1,111 @@
-* {
-        margin: 0;
-        padding: 0;
-}
 
 
 .regSection {
-        width: 1400px;
-        margin: 120px auto;
+  width: 90%;
+  max-width: 600px;
+  background-color: white;
+  border-radius: 5px;
+  padding: 20px;
+  margin: 120px auto;
+  box-shadow: 0 4px 10px #0000001a;
 }
-
-
 
 .regMain {
-        width: 800px;
-        margin: auto;
-        align-items: center;
-        border: 0.5px solid rgba(128, 128, 128, 0.248);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-
-.reginput{
-        width: 500px;
-        margin: auto;
+.regContainer {
+  width: 100%;
 }
-.reginput label{
-        display: block;
-        margin-top: 8px;
-        margin-bottom: 2px;
-        font-weight: bold;
+.registerForm {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
-
-
-.reginput input{
-        width: 100%;
-        padding: 10px;
-        border-radius: 4px;
-        background-color: #8080801a; 
-        height: 33px;   
-        border: none;   
+.reginput {
+  width: 100%;
 }
 
-
-
-
-
-.regBtn button{
-        display: block;
-        width: 500px;
-        text-align: center;
-        margin: 30px auto;
-        border-radius: 10px;
-        background-color: rgb(76, 181, 249); 
-        padding: 6px;
-        font-size: 17px;
-        font-weight: 700;
-        color: white;
+.reginput label {
+  display: block;
+  margin-top: 4px;
+  margin-bottom: 5px;
+ font-weight: 400;
 }
 
+.reginput input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+.regBtn {
+  width: 100%;
+}
+
+.regBtn button {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  background-color: #4cb5f9;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.regBtn button:hover {
+  background-color: #3aaae0;
+}
 
 .account {
-        width: 800px;
-        margin: 30px auto;
-        align-items: center;
-        border: 0.5px solid rgba(128, 128, 128, 0.248);
+  text-align: center;
+  margin-top: 20px;
 }
 
-
-.account p{
-        width: 400px;
-        margin: auto;
-        text-align: center;
-        padding: 25px;
-        font-size: 15px;
+.account p {
+  font-size: 14px;
+  color: #555;
 }
 
+.account a {
+  text-decoration: none;
+  color: #0f3b74;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
 
+.account a:hover {
+  color: #0d2c56;
+}
 
-.account a{
-        text-decoration: none;
-        color: rgb(15, 59, 116);
-        font-weight: 600;
+@media (max-width: 768px) {
+  .regSection {
+    margin: 120px auto;
+    padding: 20px;
+  }
+
+  .regBtn button {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .reginput input {
+    font-size: 12px;
+    padding: 8px;
+  }
+
+  .regBtn button {
+    font-size: 14px;
+    padding: 8px;
+  }
 }

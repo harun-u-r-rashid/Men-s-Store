@@ -106,8 +106,14 @@
 
         </div>
 
+
+</section>
+<hr>
+<section class="orderFormSection">
+        <h1>Billing Address</h1>
+        <div class="empty"></div>
         <div class="orderForm">
-                <h3>Billing Address</h3>
+               
 
                 <form class="formContainer" action="" method="POST">
                         {% csrf_token %}
@@ -149,14 +155,13 @@
                                 <input type="text" name="address" placeholder="Adress" required>
 
                         </div>
-                        <div class="orderInput">
-                                <button type="submit" class="checkout">Order</button>
+                        <div class="orderBtn">
+                                <button type="submit">Order</button>
                         </div>
 
                 </form>
 
         </div>
-
 </section>
 
 

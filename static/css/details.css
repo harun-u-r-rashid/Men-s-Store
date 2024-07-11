@@ -1,238 +1,188 @@
+/* =====CSS for details section===== */
+
 .detailsSection {
-        margin-top: 120px;
+  margin: 120px auto 20px auto;
 }
 
 .detailsContainer {
-        width: 1200px;
-        align-items: center;
-        margin: auto;
-
+  border-radius: 10px;
+  overflow: hidden;
+  max-width: 1000px;
+  width: 100%;
+  margin: auto;
+  padding: 30px;
 }
 
 .detailsCard {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-
-
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
 }
 
 .image {
-        width: 500px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.358);
 }
 
-
-.image .img {
-        width: 100%;
-        height: 420px;
-        opacity: 0.9;
-        transition: 0.5s;
-        border-radius: 4px;
-        margin-left: 100px;
-}
-
-
-
-.image .img:hover {
-        opacity: 1;
+.image img {
+  max-width: 80%;
+  height: auto;
+  border-radius: 2px;
+  margin: auto;
+  padding: 14px;
 }
 
 .details {
-        width: 800px;
-        align-items: center;
-        margin: auto;
-
-        margin-left: 200px;
-
+  flex: 2;
+  padding: 20px;
 }
-
 
 .details h1 {
-        font-size: 30px;
-        font-weight: bold;
-        font-style: italic;
-        width: 100px;
-        text-align: center;
-        margin-left: -50px;
-        color: brown;
-
+  font-size: 1.5em;
+  margin-bottom: 10px;
+  color: #333;
 }
 
-hr {
-
-        margin-bottom: 50px;
-        width: 100px;
-        margin-left: -50px;
-
-
+.details hr {
+  border: none;
+  border-bottom: 2px solid black;
+  width: 100px;
+  margin: 10px auto;
 }
 
 .details h2 {
-        font-size: 20px;
-        font-weight: bold;
-        color: black;
-
-
+  font-size: 1.2em;
+  color: #555;
+  margin-bottom: 10px;
 }
 
 .details .price {
-        margin: 30px 0;
-        width: 60px;
-        color: brown;
-        font-size: 21px;
-        font-weight: bold;
+  font-size: 1.2rem;
+  color: black;
+  margin-bottom: 10px;
+  font-weight: 500;
+}
 
+.details .price sup {
+  font-size: 0.6em;
 }
 
 .details p {
-        width: 500px;
-        font-size: 17px;
-        color: #962730;
-        margin-bottom: 20px;
-        font-weight: 400;
-        border-top: 2px dashed #b69898;
-        border-bottom: 2px dashed #b69898;
-}
-
-.details span {
-        display: block;
-        width: 150px;
-        font-size: 15px;
-        color: black;
-        font-weight: 600;
-        margin-bottom: 30px;
+  font-size: 1em;
+  color: #5d5757;
+  line-height: 1.5;
+  margin-bottom: 20px;
 }
 
 .cartBtn {
-        display: inline-block;
-        text-decoration: none;
-        width: 110px;
-        border: 2px solid black;
-        padding: 3px 5px;
-        border-radius: 4px;
-        font-weight: 500;
-        background-color: #810d5f;
-        transition: 0.5s;
+  display: inline-block;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.739);
+  padding: 5px 8px;
+  text-decoration: none;
+  transition: background-color 0.3s ease-in-out;
+  font-weight: 600;
+  border: 1px solid black;
+  border-radius: 2px;
 }
-
-
 
 .cartBtn:hover {
-        background-color: #810d5edd;
-        transform: translateY(-5px);
+  background-color: black;
+  color: white;
 }
 
-/* Review form css start from here */
-
+/* ===========CSS for ADD REVIEW Section======= */
 
 .reviewFormSection {
-        margin-top: 100px;
+  margin: auto;
+  background-color: rgba(201, 200, 199, 0.454);
+  padding: 30px;
 }
-
 
 .reviewFormContainer {
-        width: 1200px;
-        align-items: center;
-        margin: auto;
-        border: 2px solid #80808038;
-        border-radius: 5px;
-
+  max-width: 1000px;
+  width: 90%;
+  margin: auto;
 }
 
-
-.reviewFormContainer h3 {
-        width: 300px;
-        margin:20px auto;
-        text-align: center;
-        text-transform: uppercase;
-        font-size: 20px;
-        font-weight: 700;
-        border: 2px solid #a52a2a28;
-        padding: 5px;
+.empty{
+        width: 180px;
+        margin: -30px auto 0 auto;
+        border: 2px solid gray;
 }
+
 
 
 .reviewForm {
-        width: 600px;
-        margin: 30px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
-
-
-.reviewInput {
-        margin-bottom: 20px;
-}
-
 
 .reviewInput label {
-        display: block;
-        margin-bottom: 5px;
-        font-weight: bold;
+  font-size: 1em;
+  color: #555;
+  margin-bottom: 5px;
+}
+
+.reviewInput input[type="text"],
+.reviewInput select,
+.reviewInput textarea {
+  width: 100%;
+  padding: 10px;
+  font-size: 1.5rem;
+
+}
+
+.reviewInput input[type="submit"] {
+  background-color: rgba(0, 0, 0, 0.814);
+  color: #fff;
+  padding: 10px;
+
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 5px 8px;
+  transition: background-color 0.3s ease;
+  font-weight: bold;
+}
+
+.reviewInput input[type="submit"]:hover {
+        background-color: black;
+}
+@media (max-width: 600px) {
+  .image img {
+    max-width: 100%;
+  }
+  .reviewFormContainer {
+    padding: 15px;
+  }
+  .reviewFormContainer h3 {
+    font-size: 1.2em;
+  }
+
+  .reviewInput input[type="text"],
+  .reviewInput select,
+  .reviewInput textarea {
+    padding: 8px;
+    font-size: 0.9em;
+  }
+
+  .reviewInput input[type="submit"] {
+    padding: 8px;
+    font-size: 0.9em;
+  }
 }
 
 
 
-.reviewInput select{
-        width: 100%;
-        padding: 10px;
-        border: 1px solid #cccccc7b;
-        border-radius: 4px;
-        background-color: #8080801a;       
+/* ======CSS for User Review Section */
+.showReviewSection{
+        padding: 20px 30px;
 }
 
-.reviewInput textarea{
-        width: 100%;
-        height: 80px;
-        padding: 10px;
-        border: 1px solid #cccccc7b;
-        border-radius: 4px;
-        background-color: #8080801a;
-  
+.reviewSlider{
+        max-width: 1000px;
+        margin: auto;
 }
-
-.reviewInput input{
-        width: 600px;
-        text-align: center;
-        border: 2px solid gray;
-        padding: 5px 10px;
-        background-color: rgb(76, 181, 249); 
-        font-size: 18px;
-        text-transform: uppercase;
-        font-weight: 600;
-        border-radius: 5px;
-}
-
-
-
-
-.showReviewSection {
-        margin-top: 20px;
-}
-
-
-
-
-
-
-#reviewSlider{
-        width: 1200px;
-        align-items: center;
-        margin:auto;
-        border: .5px solid #80808019;
-
-}
-
-#reviewSlider h2{
-        width: 200px;
-        text-align: center;
-        margin: 20px auto;
-        font-size: 20px;
-        font-weight: 700;
-        font-style: italic;
-        border-bottom: 1px dashed red;
-
-}
-

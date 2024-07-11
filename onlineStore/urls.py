@@ -11,7 +11,7 @@ urlpatterns = [
     path('', include('appAuth.urls')),
     path('carts/', include('appCart.urls')),
     path('store/', include('appStore.urls')),
+    path('discount/', include('appOffer.urls')),
     path('orders/', include('appOrder.urls')),
-    
 
 ] +  static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

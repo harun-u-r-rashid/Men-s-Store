@@ -1,0 +1,139 @@
+nav {
+  display: flex;
+  background-color: #222222;
+  height: 80px;
+  width: 100%;
+  padding: 5px 8%;
+  justify-content: space-between;
+  padding: 10px 100px;
+  align-items: center;
+  position: fixed;
+  top: 30px;
+  z-index: 100;
+}
+
+.navLogo {
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  cursor: pointer;
+}
+
+.navLogo img {
+  width: 100%;
+}
+
+#click {
+  display: none;
+}
+
+.menuBtn {
+  font-size: 25px;
+  display: none;
+}
+
+.navUl {
+  display: flex;
+  justify-content: space-between;
+  z-index: 100;
+}
+
+.navUl li {
+  list-style: none;
+  margin: 0 10px;
+}
+
+.navUl li a {
+  display: block;
+  font-size: 15px;
+  text-align: center;
+  text-decoration: none;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: white;
+  margin: 5px;
+  align-items: center;
+  padding: 7px 10px;
+  border-radius: 4px;
+  transition: 0.5s;
+  letter-spacing: 2px;
+}
+
+.navUl li a:hover {
+  color: white;
+  background-color: black;
+  border-radius: 4px;
+}
+
+
+@media only screen and (max-width: 940px) {
+  nav {
+    display: flex;
+    background-color: #222222;
+    height: 80px;
+    width: 100%;
+    justify-content: space-between;
+    padding: 10px 30px;
+    align-items: center;
+    position: fixed;
+    top: 30px;
+    z-index: 100;
+  }
+  .navUl {
+    position: fixed;
+    top: 108px;
+    left: -100%;
+    background-color: #222222;
+    height: 28.5vh;
+    width: 100%;
+    flex-direction: column;
+    padding: 20px;
+    text-align: center;
+    transition: 0.8s;
+  }
+
+  .navUl li {
+    margin: 5px 0;
+    list-style: none;
+  }
+
+  .navUl li a {
+    width: 100px;
+    display: block;
+    font-size: 15px;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: white;
+    margin: auto;
+    align-items: center;
+    padding: 5px;
+    border-radius: 4px;
+    transition: 0.5s;
+  }
+
+  .navUl li a:hover {
+    color: white;
+    background-color: black;
+    border-radius: 4px;
+  }
+
+  span{
+    color: white;
+  }
+  #click:checked ~ .menuBtn i::before {
+    color: white;
+    content: "\f00d";
+  }
+
+  #click:checked ~ .navUl {
+    left: 0%;
+  }
+
+  .menuBtn {
+    display: block;
+  }
+}
