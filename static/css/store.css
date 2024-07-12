@@ -1,19 +1,16 @@
 .productSection {
   margin: 50px 10px;
-  padding: 15px;
+  padding: 30px;
   text-align: center;
   background-color: #e9e0e0a1;
 }
 
-.storeProductSection{
-     
-
-}
 .productDropdownMenu {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 20px;
+
 }
 
 #dropdown {
@@ -21,14 +18,16 @@
   border-radius: 5px;
   padding: 30px;
   background-color: #fff;
+  margin: auto;
 }
 
+
+
 #dropdown h3 {
+  font-size: 1rem;
   text-transform: uppercase;
-
-  color: gray;
+  color: black;
   font-weight: 600;
-
   margin-bottom: 20px;
   text-align: center;
 }
@@ -60,17 +59,18 @@
   align-items: center;
   flex-direction: column;
   transition: 0.3s all ease-in-out;
-  padding: 20px 0;
+  padding: 10px 5px;
+  height: 500px;
 }
 
 
 .productCard img {
   width: 400px;
-  height: 400px;
+  height: 70%;
   object-fit: cover;
   transition: 0.3s all ease-in-out;
   opacity: 0.9;
-  padding: 10px;
+  padding: 3px;
 }
 
 .productCard img:hover {
@@ -164,6 +164,34 @@
   color: white;
 }
 
+
+/* QUERY for PRODUCT and CATEGORY */
+@media (max-width: 520px) {
+  #dropdown {
+    width: 100%;
+    border-radius: 5px;
+    padding: 5px;
+    margin: auto;
+
+  }
+
+  .singleDropdown {
+    margin-top: 30px;
+    gap: 10px;
+  }
+  
+  .singleDropdown a {
+    text-decoration: none;
+    background-color: #d7d5d2a8;
+    padding: 3px 5px;
+
+    font-size: 1.1rem;
+    transition: 03s all ease-in-out;
+  }
+  
+  
+ 
+}
 
 /* =======Discount Store============= */
 .dropdownContainer{

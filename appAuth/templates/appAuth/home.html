@@ -47,7 +47,7 @@
               Hello Guest, Happy shopping
             </h3>
             <p id="description" class="card-text">
-              Men's New Arrivals. New colors, now also available in men's sizing
+              Men's New Arrivals in colors and sizing
             </p>
             <a id="homeBtn" href="{% url 'store' %}" class="btn">Store</a>
           </div>
@@ -96,6 +96,7 @@
 
 <section class="brandSection">
   <h1>Our clothing Brand</h1>
+  <div class="empty"></div>
   <div class="brandContainer">
     {% for i in brand %}
     <div class="singleBrand">
