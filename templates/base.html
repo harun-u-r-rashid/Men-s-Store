@@ -85,10 +85,13 @@
       rel="stylesheet"
       type="text/css"
     />
+
+    <!-- ====JS===== -->
+    <script src="{% static 'js/script.js' %}" type="text/javascript"></script>
   </head>
 
   <body>
-    <header>
+    <!-- <header>
       <h3>free shipping all over bangladesh</h3>
       <nav>
         <div class="navLogo">
@@ -103,7 +106,7 @@
           {% if request.user.is_authenticated %}
 
           <li><a href="{% url 'account' %}">Account</a></li>
-          <!-- <li><a href="{% url 'logout' %}">Logout</a></li> -->
+       
           <li>
             <a href="{% url 'cart' %}"
               ><i class="fa-solid fa-cart-shopping"></i
@@ -115,8 +118,63 @@
           {% endif %}
         </ul>
       </nav>
-    </header>
+    </header> -->
 
+    <nav id="pcNav">
+      <div class="navTitle">
+        <img src="{% static 'images/logoNav.png' %}" alt="" />
+      </div>
+      <div>
+        <ul class="navLinks">
+          <li><a href="{% url 'home' %}">Home</a></li>
+          <li><a href="{% url 'store' %}">Store</a></li>
+          <li><a href="{% url 'discount_store' %}">Discount</a></li>
+          {% if request.user.is_authenticated %}
+
+          <li><a href="{% url 'account' %}">Account</a></li>
+       
+          <li>
+            <a href="{% url 'cart' %}"
+              ><i class="fa-solid fa-cart-shopping"></i
+            ></a>
+          </li>
+          {% else %}
+          <li><a href="{% url 'login' %}">Login</a></li>
+          <li><a href="{% url 'register' %}">Register</a></li>
+          {% endif %}
+        </ul>
+      </div>
+    </nav>
+
+    <nav id="resNav">
+      <div class="navTitle">
+        <img src="{% static 'images/logoNav.png' %}" alt="" />
+      </div>
+      <div class="resMenu">
+        <div class="resIcon" onclick="toggleMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div class="menuLinks">
+          <li><a href="{% url 'home' %}" onclick="toggleMenu()">Home</a></li>
+          <li><a href="{% url 'store' %}" onclick="toggleMenu()">Store</a></li>
+          <li><a href="{% url 'discount_store' %}" onclick="toggleMenu()">Discount</a></li>
+          {% if request.user.is_authenticated %}
+
+          <li><a href="{% url 'account' %}" onclick="toggleMenu()">Account</a></li>
+       
+          <li>
+            <a href="{% url 'cart' %}" onclick="toggleMenu()"><i class="fa-solid fa-cart-shopping"></i
+            ></a>
+          </li>
+          {% else %}
+          <li><a href="{% url 'login' %}" onclick="toggleMenu()">Login</a></li>
+          <li><a href="{% url 'register' %}" onclick="toggleMenu()">Register</a></li>
+          {% endif %}
+        </div>
+      </div>
+    </nav>
     {% block body %}{% endblock %}
 
     <footer id="footer">
@@ -189,11 +247,11 @@
         </div>
       </div>
     </footer>
-    <hr>
+    <hr />
 
     <section id="copyrightSection">
       <div class="copyrightContainer">
-       <span>@copy || Harunur Rashid</span>
+        <span>@copy || Harunur Rashid</span>
       </div>
     </section>
     <!-- footer copy right section end -->
