@@ -1,11 +1,48 @@
-{% extends "base.html" %}
-
-{% load static %}
-{% block title %}Store{% endblock %}
+{% extends "base.html" %} {% load static %} {% block title %}Store{% endblock %}
 {% block body %}
 
+<section class="storeProductSection">
+  <div class="productDropdownMenu">
+    <div class="dropdownContainer">
+      <div id="dropdown">
+        <h3>Product categories</h3>
+        <div class="singleDropdown">
+          <a href="{% url 'discount_store' %}">All</a>
+          {% for category in categories %}
+          <a href="{% url 'discount_store_by_category' category.slug %}"
+            >{{ category.categoryName }}</a
+          >
+          {% endfor %}
+        </div>
+      </div>
+    </div>
 
+    <div class="paginatorProductContainer">
+      <div class="productContainer">
+        {% for item in discount_products %}
+        <div class="productCard">
+          <img src="{{item.productImage.url}}" />
 
+          <div class="productDetails">
+            <h3>{{item.productName}}</h3>
+
+            <h4>{{item.price}} Tk.</h4>
+
+            <a
+              class="productDetailsBtn btn"
+              href="{% url 'productDetail' item.category.slug item.slug %}"
+              >select option</a
+            >
+          </div>
+        </div>
+
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 
 <section class="productSection">
 
     <div class="productDropdownMenu">
@@ -53,6 +90,6 @@
 
 
 </section>
-
+ -->
 
 {% endblock %}

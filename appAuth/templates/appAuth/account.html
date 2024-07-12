@@ -13,9 +13,6 @@
                                 <li>
                                        <a href="{% url 'payment' %}"> Payment History</a>
                                 </li>
-                                <!-- <li>
-                                       <a href=""> Recieved Order</a>
-                                </li> -->
                                 <li>
                                         <a href="{% url 'logout' %}">Logout</a>
                                 </li>
@@ -31,7 +28,7 @@
                                         </div>
 
                                         <div class="personalDetails">
-                                               <h3> {{user.first_name}} {{user.last_name}}</h3>
+                                               <h3> {{user.username}}</h3>
                                                <h3>{{user.email}}</h3>
 
                                                <a href="{% url 'update' %}">Update</a>

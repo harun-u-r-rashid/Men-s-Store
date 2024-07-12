@@ -28,12 +28,12 @@
                                                         </th>
 
                                                         <th scope="col" class="px-6 py-3">
-                                                                Price <sub>(per unit)</sub>
+                                                                Price <sub>(unit)</sub>
                                                         </th>
 
-                                                        <th scope="col" class="px-6 py-3">
+                                                        <!-- <th scope="col" class="px-6 py-3">
                                                                 Price <sub>(total)</sub>
-                                                        </th>
+                                                        </th> -->
 
 
 
@@ -68,11 +68,11 @@
 
                                                         </td>
 
-                                                        <td
+                                                        <!-- <td
                                                                 class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
                                                                 {{item.sub_total}} Tk.
 
-                                                        </td>
+                                                        </td> -->
 
 
                                                 </tr>
@@ -113,51 +113,15 @@
         <h1>Billing Address</h1>
         <div class="empty"></div>
         <div class="orderForm">
-               
-
                 <form class="formContainer" action="" method="POST">
                         {% csrf_token %}
-
-                        <div class="orderInput">
-                                <input type="text" name="first_name" placeholder="First Name" required>
-                        </div>
-                        <div class="orderInput">
                                 <input type="text" name="last_name" placeholder="Last Name" required>
-                        </div>
-
-
-
-                        <div class="orderInput">
                                 <input type="email" name="email" placeholder="Email" required>
-
-                        </div>
-
-                        <div class="orderInput">
                                 <input type="number" name="phone" placeholder="Phone" required>
-                        </div>
-
-
-
-
-                        <div class="orderInput">
                                 <input type="text" name="country" placeholder="Country" required>
-
-                        </div>
-
-                        <div class="orderInput">
                                 <input type="text" name="city" placeholder="City" required>
-
-                        </div>
-
-
-
-                        <div class="orderInput">
                                 <input type="text" name="address" placeholder="Adress" required>
-
-                        </div>
-                        <div class="orderBtn">
-                                <button type="submit">Order</button>
-                        </div>
+                                <button class="btn orderBtn" type="submit">Order</button>
 
                 </form>
 

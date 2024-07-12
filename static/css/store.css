@@ -65,12 +65,13 @@
 
 
 .productCard img {
-  width: 400px;
+  display: block;
+  width: 100%;
   height: 70%;
-  object-fit: cover;
   transition: 0.3s all ease-in-out;
   opacity: 0.9;
   padding: 3px;
+  margin: auto;
 }
 
 .productCard img:hover {

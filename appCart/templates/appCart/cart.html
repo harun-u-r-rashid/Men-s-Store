@@ -9,134 +9,138 @@
 
         <div class="cartContainer">
                 <div class="continueShopping">
-                        <a href="{% url 'store' %}"> <i class="fa-solid fa-backward-fast"></i>Continue Shopping</a>
+                        <i class="fa-solid fa-backward-fast"></i>
+                        <a href="{% url 'store' %}"> </i>Continue Shopping</a>
                 </div>
 
                 <div class="cartContent">
                         {% if cart_items %}
-                        <div id="cartItem" class="relative overflow-x-auto shadow-md sm:rounded-lg">
+                        <div id="cartItem">
+                                <div  class="relative overflow-x-auto shadow-md sm:rounded-lg">
 
-                                <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                                        <thead
-                                                class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                                                <tr>
-                                                        <th scope="col" class="px-16 py-3">
-                                                                Image
-                                                        </th>
-                                                        <th scope="col" class="px-6 py-3">
-                                                                Product
-                                                        </th>
-                                                        <th scope="col" class="px-6 py-3">
-                                                                Quantity
-                                                        </th>
-
-                                                        <th scope="col" class="px-6 py-3">
-                                                                Price <sub>(per unit)</sub>
-                                                        </th>
-
-                                                        <th scope="col" class="px-6 py-3">
-                                                                Price <sub>(total)</sub>
-                                                        </th>
-
-
-
-                                                        <th scope="col" class="px-6 py-3">
-                                                                Action
-                                                        </th>
-                                                </tr>
-                                        </thead>
-                                        <tbody>
-
-                                                {% for item in cart_items %}
-                                                <tr
-                                                        class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                                                        <td id="image" class="p-4">
-                                                                <img class="cartImage"
-                                                                        src="{{item.product.productImage.url}}"
-                                                                        class="w-16 md:w-32 max-w-full max-h-full"
-                                                                        alt="Apple Watch">
-                                                        </td>
-                                                        <td
-                                                                class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
-                                                                {{item.product.productName}}
-                                                        </td>
-                                                        <td class="px-6 py-4">
-                                                                <div class="flex items-center">
-
-                                                                        <form action="{% url 'removeCartItem' item.product.id %}"
-                                                                                method="POST">
-                                                                                {% csrf_token %}
-                                                                                <button class="inline-flex items-center justify-center p-1 me-3 text-sm font-medium h-6 w-6 text-gray-500 bg-white border border-gray-300 rounded-full focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"
-                                                                                        type="submit">
-                                                                                        <span class="sr-only">Quantity
-                                                                                                button</span>
-                                                                                        <svg class="w-3 h-3"
-                                                                                                aria-hidden="true"
-                                                                                                xmlns="http://www.w3.org/2000/svg"
-                                                                                                fill="none"
-                                                                                                viewBox="0 0 18 2">
-                                                                                                <path stroke="currentColor"
-                                                                                                        stroke-linecap="round"
-                                                                                                        stroke-linejoin="round"
-                                                                                                        stroke-width="2"
-                                                                                                        d="M1 1h16" />
-                                                                                        </svg>
-                                                                                </button>
-                                                                        </form>
-
-                                                                        <div>
-                                                                                {{item.quantity}}
+                                        <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                                <thead
+                                                        class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                                                        <tr>
+                                                                <th scope="col" class="px-16 py-3">
+                                                                        Image
+                                                                </th>
+                                                                <th scope="col" class="px-6 py-3">
+                                                                        Product
+                                                                </th>
+                                                                <th scope="col" class="px-6 py-3">
+                                                                        Quantity
+                                                                </th>
+        
+                                                                <th scope="col" class="px-6 py-3">
+                                                                        Price <sub>(per unit)</sub>
+                                                                </th>
+<!--         
+                                                                <th scope="col" class="px-6 py-3">
+                                                                        Price <sub>(total)</sub>
+                                                                </th> -->
+        
+        
+        
+                                                                <!-- <th scope="col" class="px-6 py-3">
+                                                                        Action
+                                                                </th> -->
+                                                        </tr>
+                                                </thead>
+                                                <tbody>
+        
+                                                        {% for item in cart_items %}
+                                                        <tr
+                                                                class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                                                <td id="image" class="p-4">
+                                                                        <img class="cartImage"
+                                                                                src="{{item.product.productImage.url}}"
+                                                                                class="w-16 md:w-32 max-w-full max-h-full"
+                                                                                alt="Apple Watch">
+                                                                </td>
+                                                                <td
+                                                                        class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
+                                                                        {{item.product.productName}}
+                                                                </td>
+                                                                <td class="px-6 py-4">
+                                                                        <div class="flex items-center">
+        
+                                                                                <form action="{% url 'removeCartItem' item.product.id %}"
+                                                                                        method="POST">
+                                                                                        {% csrf_token %}
+                                                                                        <button class="inline-flex items-center justify-center p-1 me-3 text-sm font-medium h-6 w-6 text-gray-500 bg-white border border-gray-300 rounded-full focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"
+                                                                                                type="submit">
+                                                                                                <span class="sr-only">Quantity
+                                                                                                        button</span>
+                                                                                                <svg class="w-3 h-3"
+                                                                                                        aria-hidden="true"
+                                                                                                        xmlns="http://www.w3.org/2000/svg"
+                                                                                                        fill="none"
+                                                                                                        viewBox="0 0 18 2">
+                                                                                                        <path stroke="currentColor"
+                                                                                                                stroke-linecap="round"
+                                                                                                                stroke-linejoin="round"
+                                                                                                                stroke-width="2"
+                                                                                                                d="M1 1h16" />
+                                                                                                </svg>
+                                                                                        </button>
+                                                                                </form>
+        
+                                                                                <div>
+                                                                                        {{item.quantity}}
+                                                                                </div>
+        
+                                                                                <form action="{% url 'addCart' item.product.id %}"
+                                                                                        method="POST">
+                                                                                        {% csrf_token %}
+        
+                                                                                        <button class="inline-flex items-center justify-center h-6 w-6 p-1 ms-3 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-full focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"
+                                                                                                type="submit">
+        
+                                                                                                <svg class="w-3 h-3"
+                                                                                                        aria-hidden="true"
+                                                                                                        fill="none"
+                                                                                                        viewBox="0 0 18 18">
+                                                                                                        <path stroke="currentColor"
+                                                                                                                d="M9 1v16M1 9h16" />
+                                                                                                </svg>
+                                                                                        </button>
+        
+                                                                                </form>
+        
                                                                         </div>
-
-                                                                        <form action="{% url 'addCart' item.product.id %}"
-                                                                                method="POST">
-                                                                                {% csrf_token %}
-
-                                                                                <button class="inline-flex items-center justify-center h-6 w-6 p-1 ms-3 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-full focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"
-                                                                                        type="submit">
-
-                                                                                        <svg class="w-3 h-3"
-                                                                                                aria-hidden="true"
-                                                                                                fill="none"
-                                                                                                viewBox="0 0 18 18">
-                                                                                                <path stroke="currentColor"
-                                                                                                        d="M9 1v16M1 9h16" />
-                                                                                        </svg>
-                                                                                </button>
-
-                                                                        </form>
-
-                                                                </div>
-                                                        </td>
-
-                                                        <td
-                                                                class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
-                                                                {{item.product.price}} Tk.
-
-                                                        </td>
-
-                                                        <td
-                                                                class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
-                                                                {{item.sub_total}} Tk.
-
-                                                        </td>
-
-                                                        <td class="px-6 py-4">
-                                                                <a class="remove"
-                                                                        href="{% url 'removeCartItem' item.product.id %}"
-                                                                        class="font-medium text-red-600 dark:text-red-500 hover:underline">Remove</a>
-                                                        </td>
-                                                </tr>
-                                                {% endfor %}
-
-
-
-
-                                        </tbody>
-                                </table>
-
-
+                                                                </td>
+        
+                                                                <td
+                                                                        class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
+                                                                        {{item.product.price}} Tk.
+        
+                                                                </td>
+        
+                                                                <!-- <td
+                                                                        class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
+                                                                        {{item.sub_total}} Tk.
+        
+                                                                </td> -->
+        
+                                                                <!-- <td class="px-6 py-4">
+                                                                        <a class="remove"
+                                                                                href="{% url 'removeCartItem' item.product.id %}"
+                                                                                class="font-medium text-red-600 dark:text-red-500 hover:underline">Remove</a>
+                                                                </td> -->
+                                                        </tr>
+                                                        {% endfor %}
+        
+        
+        
+        
+                                                </tbody>
+                                        </table>
+        
+        
+                                </div>
                         </div>
+                       
                         <div class="totalCalculation">
                                 <h2>cart total</h2>
                                 <div class="subTotal">
