@@ -3,21 +3,16 @@
 {% block title %}Reset Pasword{% endblock %}
 
 {% block body %}
-<section>
-<div class="resetForm">
-      <div class="resetFormCard">
-      <p class="resetFormTitle">Please enter your new password twice</p>
+<section class="resetSection">
+ <h1>Update your password</h1>
+
       <form action="." method="post">
-        <div class="inputContainer">
           {{ form.as_p }}
           {% csrf_token %}
-        </div>
       
-       <p><input type="submit" value="Change my password"/></p>
+       <p><input type="submit" value="Change"/></p>
       </form>
-      </div> 
-    </div> 
- 
+
 
 </section>
 {% endblock %}

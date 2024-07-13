@@ -101,14 +101,14 @@
   <h1>Our clothing Brand</h1>
   <div class="empty"></div>
   <div class="brandContainer">
-    {% for i in brand %}
-    <div class="singleBrand">
-      <img src="{{i.image.url}}" alt="" />
-      <div class="brandInfo">
-        <h2>{{ i.brandName }}</h2>
+    <div class="brandContent">
+      {% for i in brand %}
+      <div class="singleBrand">
+        <img src="{{i.image.url}}" alt="" />   
       </div>
+      {% endfor %}
     </div>
-    {% endfor %}
+  
   </div>
 </section>
 

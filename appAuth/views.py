@@ -185,7 +185,7 @@ def resetPassword(request):
             send_email.send()
             return redirect("login")
         else:
-            return redirect("forget_password")
+            return redirect("reset_password")
     return render(request, "appAuth/reset_password.html")
 
 
