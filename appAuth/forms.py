@@ -11,6 +11,7 @@ class RegistrationForm(UserCreationForm):
                 fields = ['username', 'first_name', 'last_name', 'email', 'password1', 'password2']
 
 
+
 class CustomSetPasswordForm(SetPasswordForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

@@ -16,70 +16,41 @@
 
 
                         <div class="regContainer">
+
+                               
+                               
                                 <form class="registerForm" action="" method="POST">
                                         {% csrf_token %}
-
-
-
-                                        <div class="reginput">
                                                 <label class="label" for="username">Username</label>
                                                 {{form.username}}
-
-
-                                        </div>
-
-
-                                        <div class="reginput">
                                                 <label class="label" for="first_name">First Name</label>
                                                
                                                 {{form.first_name}}
-                                        </div>
-
-                                        <div class="reginput">
+                                  
                                                 <label class="label" for="last_name">Last Name</label>
-                                               
-
+                                        
                                                 {{form.last_name}}
 
-
-                                        </div>
-
-
-
-                                        <div class="reginput">
                                                 <label class="label" for="email">Email </label>
                                                
                                                 {{form.email}}
-                                        </div>
-
-
-
-
-
-
-
-                                        <div class="reginput">
+                                
+                                  
                                                 <label class="label" for="password1">Password</label>
                                                
                                                 {{form.password1}}
-                                        </div>
+                                  
 
-                                        <div class="reginput">
+                              
                                                 <label class="label" for="password2">Confirm Password</label>
                                                
                                                 {{form.password2}}
-                                        </div>
-
-
-
-                                        <div class="regBtn">
-                                                <button type="submit">
+                               
+                                                <button class="btn regBtn" type="submit">
                                                         Register
-                                                </button>
+                                       
                                         </div>
 
-
-                                
                                 </form>
                         </div>
                        
@@ -92,6 +63,22 @@
 
         </section>
 </main>
+
+{% block extra_scripts %}
+    {% if messages %}
+        {% for message in messages %}
+            <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    Swal.fire({
+                        text: "{{ message }}",
+                        timer: 5000
+                    });
+                });
+            </script>
+        {% endfor %}
+    {% endif %}
+{% endblock %}
+
 
 
 {% endblock %}

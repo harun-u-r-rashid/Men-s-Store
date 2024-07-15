@@ -10,21 +10,19 @@ from django.contrib.auth.tokens import default_token_generator
 from django.core.mail import EmailMessage
 from django.http import HttpResponse
 from django.contrib.auth.models import User
-from django.contrib import messages
 from django.contrib.auth import update_session_auth_hash
 from .forms import CustomSetPasswordForm, UpdateProfileForm
 from django.core.paginator import Paginator
 from appStore.models import Brand, Review, Product
 from appCategory.models import Category
 from django.core.paginator import Paginator
+from django.contrib import messages as django_messages
 
 
 def get_create_session(request):
     if not request.session.session_key:
         request.session.create()
     return request.session.session_key
-
-
 
 
 def home(request, categorySlug=None):
@@ -101,13 +99,18 @@ def register(request):
             to_email = user.email
             send_email = EmailMessage(mail_subject, message, to=[to_email])
             send_email.send()
-            return HttpResponse(
-                "Please confirm your email to complete the registration"
-            )
+
+            django_messages.success(request, "Please check your email to active your account")
+
+            # return HttpResponse(
+            #     "Please check your email to active your account"
+            # )
+        else:
+            django_messages.error(request, "Registration falied!")
 
     else:
         form = RegistrationForm()
-
+        
     return render(request, "appAuth/register.html", {"form": form})
 
 
@@ -123,10 +126,10 @@ def activate(request, uidb64, token):
         user.is_active = True
         user.save()
 
-        messages.success(request, "Congratulations, your account has been activated.")
+        django_messages.success(request, "Congratulations, your account has been activated.")
         return redirect("login")
     else:
-        messages.error(request, "Invalid activation link")
+        django_messages.error(request, "Invalid activation link")
 
     return redirect("register")
 
@@ -138,10 +141,9 @@ def userLogin(request):
         user = authenticate(username=user_name, password=password)
 
         if user is not None:
-
             session_key = get_create_session(request)
             cart = Cart.objects.filter(cart_id=session_key).exists()
-            print("cart", cart)
+            # print("cart", cart)
             if cart:
                 cart = Cart.objects.get(cart_id=session_key)
                 print("s cart", cart)
@@ -151,13 +153,17 @@ def userLogin(request):
                     for item in cart_item:
                         item.user = user
                         item.save()
-            login(request, user)
-            return redirect("home")
-    return render(request, "appAuth/login.html")
 
+            login(request, user)
+            django_messages.success(request, "Successfully logged in.")
+            return redirect("home")
+        else:
+            django_messages.error(request, "Invalid Username or password.")
+    return render(request, "appAuth/login.html")
 
 def userLogout(request):
     logout(request)
+    django_messages.success(request, "Successfully logged out.")
     return redirect("login")
 
 
@@ -183,8 +189,10 @@ def resetPassword(request):
             to_email = email
             send_email = EmailMessage(email_subject, messages, to=[to_email])
             send_email.send()
+            django_messages.success(request, "Check your email to reset your password")
             return redirect("login")
         else:
+            django_messages.error(request, "Invalid email address")
             return redirect("reset_password")
     return render(request, "appAuth/reset_password.html")
 
@@ -209,7 +217,7 @@ def activate_reset_password(request, uidb64, token):
         return render(request, "appAuth/reset_form.html", {"form": form})
 
     else:
-        messages.error(request, "Invalid Link")
+        django_messages.error(request, "Invalid Link")
 
     return redirect("register")
 

@@ -2,9 +2,8 @@
   width: 90%;
   max-width: 500px;
   background-color: white;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px #0000001a;
   padding: 20px;
+  border: 1px solid #00000052;
   margin: 120px auto 20px auto;
 }
 
@@ -35,7 +34,7 @@
   width: 100%;
   padding: 10px;
   border: 1px solid #ccc;
-  border-radius: 5px;
+  border-radius: 2px;
   background-color: #f0f0f0;
   font-size: 14px;
 }
@@ -55,7 +54,7 @@
   color: white;
   background-color: #4cb5f9;
   border: none;
-  border-radius: 5px;
+  border-radius: 2px;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }

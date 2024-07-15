@@ -6,14 +6,29 @@
 <section class="resetSection">
  <h1>Update your password</h1>
 
-      <form action="." method="post">
+      <form class="formContainer" method="post">
           {{ form.as_p }}
           {% csrf_token %}
       
-       <p><input type="submit" value="Change"/></p>
+       <input type="submit" value="Change"/>
       </form>
 
 
 </section>
+
+{% block extra_scripts %}
+    {% if messages %}
+        {% for message in messages %}
+            <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    Swal.fire({
+                        text: "{{ message }}",
+                        timer: 5000
+                    });
+                });
+            </script>
+        {% endfor %}
+    {% endif %}
+{% endblock %}
 {% endblock %}
 

@@ -1,13 +1,10 @@
-
-
 .regSection {
   width: 90%;
   max-width: 600px;
   background-color: white;
-  border-radius: 5px;
   padding: 20px;
   margin: 120px auto;
-  box-shadow: 0 4px 10px #0000001a;
+  border: 1px solid #00000052;
 }
 
 .regMain {
@@ -22,45 +19,23 @@
 .registerForm {
   display: flex;
   flex-direction: column;
-  gap: 20px;
-}
-
-.reginput {
-  width: 100%;
-}
-
-.reginput label {
-  display: block;
-  margin-top: 4px;
-  margin-bottom: 5px;
- font-weight: 400;
-}
-
-.reginput input {
-  width: 100%;
-  padding: 10px;
-  border-radius: 5px;
-  background-color: #f0f0f0;
-  border: 1px solid #ccc;
-  font-size: 14px;
+  gap: 5px;
 }
 
 .regBtn {
   width: 100%;
+  padding: 5px 0;
+  border-radius: 2px;
+  background-color: #4cb5f9;
+  margin-top: 20px;
+  color: white;
+  font-weight: bold;
 }
 
-.regBtn button {
-  width: 100%;
-  padding: 10px;
-  font-size: 16px;
-  font-weight: bold;
-  color: white;
+.regBtn:hover{
   background-color: #4cb5f9;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
 }
+
 
 .regBtn button:hover {
   background-color: #3aaae0;
@@ -70,6 +45,23 @@
   text-align: center;
   margin-top: 20px;
 }
+
+.registerForm input[type="text"],
+.registerForm input[type="email"],
+.registerForm input[type="password"],
+.registerForm textarea,
+.registerForm select,
+.registerForm input {
+ border-radius: 2px;
+ background-color: #F0F0F0;
+ border: 1px solid rgba(128, 128, 128, 0.209);
+}
+
+.registerForm label{
+  font-size: .9rem;
+  font-weight: 500;
+}
+
 
 .account p {
   font-size: 14px;

@@ -132,7 +132,7 @@
           {% if request.user.is_authenticated %}
 
           <li><a href="{% url 'account' %}">Account</a></li>
-       
+
           <li>
             <a href="{% url 'cart' %}"
               ><i class="fa-solid fa-cart-shopping"></i
@@ -159,18 +159,27 @@
         <div class="menuLinks">
           <li><a href="{% url 'home' %}" onclick="toggleMenu()">Home</a></li>
           <li><a href="{% url 'store' %}" onclick="toggleMenu()">Store</a></li>
-          <li><a href="{% url 'discount_store' %}" onclick="toggleMenu()">Discount</a></li>
+          <li>
+            <a href="{% url 'discount_store' %}" onclick="toggleMenu()"
+              >Discount</a
+            >
+          </li>
           {% if request.user.is_authenticated %}
 
-          <li><a href="{% url 'account' %}" onclick="toggleMenu()">Account</a></li>
-       
           <li>
-            <a href="{% url 'cart' %}" onclick="toggleMenu()"><i class="fa-solid fa-cart-shopping"></i
+            <a href="{% url 'account' %}" onclick="toggleMenu()">Account</a>
+          </li>
+
+          <li>
+            <a href="{% url 'cart' %}" onclick="toggleMenu()"
+              ><i class="fa-solid fa-cart-shopping"></i
             ></a>
           </li>
           {% else %}
           <li><a href="{% url 'login' %}" onclick="toggleMenu()">Login</a></li>
-          <li><a href="{% url 'register' %}" onclick="toggleMenu()">Register</a></li>
+          <li>
+            <a href="{% url 'register' %}" onclick="toggleMenu()">Register</a>
+          </li>
           {% endif %}
         </div>
       </div>
@@ -265,8 +274,9 @@
     <!-- =======Sweet Alerts======= -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-
     <!-- ==========Tailwind============ -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+    <!-- In your base.html or directly in register.html -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
   </body>
 </html>

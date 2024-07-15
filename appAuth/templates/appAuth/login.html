@@ -4,7 +4,6 @@
 
 {%block body%}
 
-<main>
         <section class="loginSection">
 
                 <div class="loginMain">
@@ -92,7 +91,20 @@
                 </div>
 
         </section>
-</main>
 
+        {% block extra_scripts %}
+        {% if messages %}
+            {% for message in messages %}
+                <script>
+                    document.addEventListener('DOMContentLoaded', function() {
+                        Swal.fire({
+                            text: "{{ message }}",
+                            timer: 5000
+                        });
+                    });
+                </script>
+            {% endfor %}
+        {% endif %}
+    {% endblock %}
 
 {%endblock%}
