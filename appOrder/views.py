@@ -1,15 +1,14 @@
 from django.shortcuts import render, redirect
-from appCart.models import CartItem, Cart
+from appCart.models import CartItem
 from .forms import OrderForm 
 from .ssl import sslcommerz_payment_gateway
-from django.contrib.auth.models import User
 from .models import Payment, Order, OrderProduct
 from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt
 from appStore.models import Product
 from .forms import OrderForm 
 from .ssl import sslcommerz_payment_gateway
-from django.contrib.auth.models import User
+from appAuth import models
 from .models import Payment, Order, OrderProduct
 from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt
@@ -22,7 +21,7 @@ from django.shortcuts import redirect
 def successView(request):
     data = request.POST
     user_id = int(data['value_b'])
-    user = User.objects.get(pk=user_id)
+    user = models.User.objects.get(pk=user_id)
     payment = Payment(
         user=user,
         payment_id=data['tran_id'],
@@ -117,6 +116,8 @@ def checkout(request):
 def orderHistory(request):
      orders = Order.objects.filter(user=request.user)
      return render(request, 'appOrder/orderHistory.html', {'orders': orders})
+
+
 
 def orderDetails(request, orderId):
        order = Order.objects.get(id = orderId)

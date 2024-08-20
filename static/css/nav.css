@@ -1,6 +1,5 @@
 body {
   max-width: 1600px;
-  border: 1px solid gray;
   margin: auto;
   padding: 0px 10px;
 }
@@ -13,7 +12,7 @@ nav {
   z-index: 100;
   padding: 0 5px;
   text-align: center;
-  border-bottom: 1px solid rgba(128, 128, 128, 0.349);
+  border-bottom: 1px solid #80808071;
 }
 
 #navbar > li > a, #nabvar2>li>a, #navbar3>li>a {
