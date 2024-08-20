@@ -1,14 +1,15 @@
-from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.models import User
-from django.contrib.auth.forms import SetPasswordForm
 from django import forms
-from django.contrib.auth.models import User
+from . import models
 
+from django.contrib.auth.forms import UserCreationForm
 
-class RegistrationForm(UserCreationForm):
+from django.contrib.auth.forms import SetPasswordForm
+
+class RegistrationForm(forms.ModelForm):
+        confirm_password = forms.CharField(required=True)
         class Meta:
-                model = User
-                fields = ['username', 'first_name', 'last_name', 'email', 'password1', 'password2']
+                model = models.User
+                fields = ['username', 'first_name', 'last_name', 'email', 'image', 'password', 'confirm_password']
 
 
 
@@ -21,5 +22,5 @@ class CustomSetPasswordForm(SetPasswordForm):
 
 class UpdateProfileForm(forms.ModelForm):
       class Meta:
-            model = User
+            model = models.User
             fields = ['first_name', 'last_name', 'email']

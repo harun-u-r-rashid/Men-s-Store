@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import RegistrationForm
-from django.contrib.auth import login, logout, authenticate
+from django.contrib.auth import login as auth_login, logout, authenticate
 from appCart.models import Cart, CartItem
+
 from django.contrib.sites.shortcuts import get_current_site
 from django.template.loader import render_to_string
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
@@ -9,14 +10,14 @@ from django.utils.encoding import force_bytes
 from django.contrib.auth.tokens import default_token_generator
 from django.core.mail import EmailMessage
 from django.http import HttpResponse
-from django.contrib.auth.models import User
+from . import models
 from django.contrib.auth import update_session_auth_hash
 from .forms import CustomSetPasswordForm, UpdateProfileForm
 from django.core.paginator import Paginator
-from appStore.models import Brand, Review, Product
+from appStore.models import Brand, Review, Product, Gallery
 from appCategory.models import Category
 from django.core.paginator import Paginator
-from django.contrib import messages as django_messages
+from django.contrib import messages 
 
 
 def get_create_session(request):
@@ -29,20 +30,23 @@ def home(request, categorySlug=None):
 
     brand = Brand.objects.all()
     reviews = Review.objects.all()
+    gallery = Gallery.objects.all()
+
+
 
     if categorySlug:
         category = get_object_or_404(Category, slug=categorySlug)
         products = Product.objects.filter(
-            is_available=True, is_discount=False, category=category
+            is_available=True, is_discount=False, is_new=True, category=category
         )
         page = request.GET.get("page")
-        paginator = Paginator(products, 8)
+        paginator = Paginator(products, 4)
         pagedProducts = paginator.get_page(page)
     else:
-        products = Product.objects.filter(is_available=True, is_discount=False)
+        products = Product.objects.filter(is_available=True, is_discount=False, is_new=True)
         for product in products:
             product.price = product.discount_price()
-        paginator = Paginator(products, 8)
+        paginator = Paginator(products, 4)
         page = request.GET.get("page")
         pagedProducts = paginator.get_page(page)
 
@@ -65,6 +69,7 @@ def home(request, categorySlug=None):
             "reviews": reviews,
             "products": pagedProducts,
             "categories": categories,
+            "gallery":gallery,
         },
     )
 
@@ -100,13 +105,13 @@ def register(request):
             send_email = EmailMessage(mail_subject, message, to=[to_email])
             send_email.send()
 
-            django_messages.success(request, "Please check your email to active your account")
+            messages.success(request, "Please check your email to active your account")
 
             # return HttpResponse(
             #     "Please check your email to active your account"
             # )
         else:
-            django_messages.error(request, "Registration falied!")
+            messages.error(request, "Registration falied!")
 
     else:
         form = RegistrationForm()
@@ -117,62 +122,65 @@ def register(request):
 def activate(request, uidb64, token):
     try:
         uid = urlsafe_base64_decode(uidb64).decode()
-        user = User._default_manager.get(pk=uid)
+        user = models.User._default_manager.get(pk=uid)
 
-    except (TypeError, ValueError, OverflowError, User.DoesNotExist):
+    except (TypeError, ValueError, OverflowError, models.User.DoesNotExist):
         user = None
 
     if user is not None and default_token_generator.check_token(user, token):
         user.is_active = True
         user.save()
 
-        django_messages.success(request, "Congratulations, your account has been activated.")
+        messages.success(request, "Congratulations, your account has been activated.")
         return redirect("login")
     else:
-        django_messages.error(request, "Invalid activation link")
+        messages.error(request, "Invalid activation link")
 
     return redirect("register")
 
 
-def userLogin(request):
+def login(request):
     if request.method == "POST":
-        user_name = request.POST.get("username")
+        email = request.POST.get("email")
         password = request.POST.get("password")
-        user = authenticate(username=user_name, password=password)
+        user = authenticate(username=email, password=password)  # Using username parameter for email
 
         if user is not None:
             session_key = get_create_session(request)
             cart = Cart.objects.filter(cart_id=session_key).exists()
-            # print("cart", cart)
+
             if cart:
                 cart = Cart.objects.get(cart_id=session_key)
-                print("s cart", cart)
                 is_cart_item_exists = CartItem.objects.filter(cart=cart).exists()
+
                 if is_cart_item_exists:
                     cart_item = CartItem.objects.filter(cart=cart)
                     for item in cart_item:
                         item.user = user
                         item.save()
 
-            login(request, user)
-            django_messages.success(request, "Successfully logged in.")
+            auth_login(request, user)
+            messages.success(request, "Successfully logged in.")
             return redirect("home")
         else:
-            django_messages.error(request, "Invalid Username or password.")
+            messages.error(request, "Invalid Username or password.")
     return render(request, "appAuth/login.html")
+
+
 
 def userLogout(request):
     logout(request)
-    django_messages.success(request, "Successfully logged out.")
+    messages.success(request, "Successfully logged out.")
     return redirect("login")
 
 
 def resetPassword(request):
     if request.method == "POST":
+       
         email = request.POST["email"]
 
-        if User.objects.filter(email=email).exists():
-            user = User.objects.get(email__exact=email)
+        if models.User.objects.filter(email=email).exists():
+            user = models.User.objects.get(email__exact=email)
 
             current_site = get_current_site(request)
             email_subject = "Reset your password"
@@ -189,10 +197,10 @@ def resetPassword(request):
             to_email = email
             send_email = EmailMessage(email_subject, messages, to=[to_email])
             send_email.send()
-            django_messages.success(request, "Check your email to reset your password")
+            messages.success(request, "Check your email to reset your password")
             return redirect("login")
         else:
-            django_messages.error(request, "Invalid email address")
+            messages.error(request, "Invalid email address")
             return redirect("reset_password")
     return render(request, "appAuth/reset_password.html")
 
@@ -200,9 +208,9 @@ def resetPassword(request):
 def activate_reset_password(request, uidb64, token):
     try:
         uid = urlsafe_base64_decode(uidb64).decode()
-        user = User._default_manager.get(pk=uid)
+        user = models.User._default_manager.get(pk=uid)
 
-    except (TypeError, ValueError, OverflowError, User.DoesNotExist):
+    except (TypeError, ValueError, OverflowError, models.User.DoesNotExist):
         user = None
 
     if user is not None and default_token_generator.check_token(user, token):
@@ -217,7 +225,7 @@ def activate_reset_password(request, uidb64, token):
         return render(request, "appAuth/reset_form.html", {"form": form})
 
     else:
-        django_messages.error(request, "Invalid Link")
+        messages.error(request, "Invalid Link")
 
     return redirect("register")
 

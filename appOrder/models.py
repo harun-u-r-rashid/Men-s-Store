@@ -1,5 +1,6 @@
 from django.db import models
-from django.contrib.auth.models import User
+from appAuth.models import User
+
 from appStore.models import Product
 from .constants import STATUS
 

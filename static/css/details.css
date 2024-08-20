@@ -1,118 +1,12 @@
-/* =====CSS for details section===== */
-
-.detailsSection {
-  margin: 120px auto 20px auto;
-}
-
-.detailsContainer {
-  border-radius: 10px;
-  overflow: hidden;
-  max-width: 1000px;
-  width: 100%;
-  margin: auto;
-  padding: 30px;
-}
-
-.detailsCard {
-  display: flex;
-  flex-direction: row;
-  gap: 20px;
-}
-
-.image {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-bottom: 1px solid rgba(128, 128, 128, 0.358);
-}
-
-.image img {
-  max-width: 80%;
-  height: auto;
-  border-radius: 2px;
-  margin: auto;
-  padding: 14px;
-}
-
-.details {
-  flex: 2;
-  padding: 20px;
-}
-
-.details h1 {
-  font-size: 1.5em;
-  margin-bottom: 10px;
-  color: #333;
-}
-
-.details hr {
-  border: none;
-  border-bottom: 2px solid black;
-  width: 100px;
-  margin: 10px auto;
-}
-
-.details h2 {
-  font-size: 1.2em;
-  color: #555;
-  margin-bottom: 10px;
-}
-
-.details .price {
-  font-size: 1.2rem;
-  color: black;
-  margin-bottom: 10px;
-  font-weight: 500;
-}
-
-.details .price sup {
-  font-size: 0.6em;
-}
-
-.details p {
-  font-size: 1em;
-  color: #5d5757;
-  line-height: 1.5;
-  margin-bottom: 20px;
-}
-
-.cartBtn {
-  display: inline-block;
-  color: white;
-  background-color: rgba(0, 0, 0, 0.739);
-  padding: 5px 8px;
-  text-decoration: none;
-  transition: background-color 0.3s ease-in-out;
-  font-weight: 600;
-  border: 1px solid black;
-  border-radius: 2px;
-}
-
-.cartBtn:hover {
-  background-color: black;
-  color: white;
-}
 
 /* ===========CSS for ADD REVIEW Section======= */
 
-.reviewFormSection {
-  margin: auto;
-  background-color: rgba(201, 200, 199, 0.454);
-  padding: 30px;
-}
 
 .reviewFormContainer {
-  max-width: 1000px;
+  max-width: 1200px;
   width: 90%;
   margin: auto;
 }
-
-.empty{
-        width: 180px;
-        margin: -30px auto 0 auto;
-        border: 2px solid gray;
-}
-
 
 
 .reviewForm {
@@ -177,12 +71,3 @@
 
 
 
-/* ======CSS for User Review Section */
-.showReviewSection{
-        padding: 20px 30px;
-}
-
-.reviewSlider{
-        max-width: 1000px;
-        margin: auto;
-}

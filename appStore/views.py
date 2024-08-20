@@ -11,15 +11,15 @@ from django.contrib import messages
 def store(request, categorySlug = None):
         if categorySlug:
                 category = get_object_or_404(Category, slug = categorySlug)
-                products = Product.objects.filter(is_available = True, is_discount=False, category = category)
+                products = Product.objects.filter(is_available = True, is_discount=False, is_new=False, category = category)
                 page = request.GET.get('page')
                 paginator = Paginator(products, 8)
                 pagedProducts = paginator.get_page(page)
         else:
-                products = Product.objects.filter(is_available=True, is_discount=False)
+                products = Product.objects.filter(is_available=True, is_discount=False, is_new=False)
                 for product in products:
                         product.price=product.discount_price()
-                paginator = Paginator(products, 8)
+                paginator = Paginator(products, 4)
                 page = request.GET.get('page')
                 pagedProducts = paginator.get_page(page)
 
@@ -30,7 +30,8 @@ def store(request, categorySlug = None):
         
         
         categories = Category.objects.all()
-        context = {'products':pagedProducts, 'categories': categories}
+        reviews = Review.objects.filter(product__is_available=True)
+        context = {'products':pagedProducts, 'categories': categories, 'reviews':reviews}
         return render(request, 'appStore/store.html', context)
 
 

@@ -1,4 +1,4 @@
-.accountSection {
+/* .accountSection {
   width: 100%;
   max-width: 1200px;
   margin: 80px auto;
@@ -144,7 +144,6 @@ aside ul li a:hover {
   }
 }
 
-/* =======Update the account=========== */
 
 .updateSection {
   width: 100%;
@@ -218,7 +217,6 @@ aside ul li a:hover {
   }
 }
 
-/* ========Order History CSS======== */
 
 .orderHistorySection, .paymentSection {
   padding: 10px;
@@ -321,12 +319,10 @@ aside ul li a:hover {
 
 
 
-/* ========Order Details============= */
-
 
 .orderDetail {
   max-width: 800px;
   margin: 100px auto;
   padding: 20px;
   border-radius: 8px;
-}
+} */

@@ -1,7 +1,7 @@
 {% extends "base.html" %} {% load static %} {% block title %}Store{% endblock %}
 {% block body %}
 
-<section class="storeProductSection">
+<!-- <section class="storeProductSection">
   <div class="productDropdownMenu">
     <div class="dropdownContainer">
       <div id="dropdown">
@@ -40,7 +40,50 @@
       </div>
     </div>
   </div>
+</section> -->
+<section class="sectionContainer">
+  <h6><i class="fa-solid fa-tags"></i> discount corner</h6>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      {% for product in discount_products %}
+
+      <div id="card" class="bg-white shadow-md overflow-hidden">
+        <img src="{{product.productImage.url}}" alt="Card Image" class="" />
+        <div id="card_title" class="p-4">
+          <div class="flex justify-between items-center">
+            <div><p class="text-gray-600 mt-1">{{ product.productName }}</p>
+              <p class="text-gray-600 mt-1"> Tk. {{ product.price }}</p></div>
+         
+            <i class="fa-regular fa-heart"></i>
+          </div>
+
+          <hr
+            class="my-3 border-gray-300 sm:mx-auto dark:border-gray-700 lg:my-5"
+          />
+          <div class="mt-2 flex justify-between items-center">
+        
+
+            
+            <a
+            class="btn border bg-dark p-2 focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-3 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"
+            href="{% url 'addCart' product.id %}"
+            ><i class="fa-solid fa-cart-plus"></i>
+          </a>
+            <a
+              class="btn border bg-dark p-2 focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-3 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"
+              href="{% url 'productDetail' product.category.slug product.slug %}"
+              >Details <i class="fa-solid fa-arrow-right"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
 </section>
+
+
+
 
 <!-- 
 <section class="productSection">

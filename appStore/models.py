@@ -1,6 +1,7 @@
 from django.db import models
 from appCategory.models import Category
-from django.contrib.auth.models import User
+from appAuth.models import User
+
 from .constants import STAR
 
 
@@ -16,6 +17,7 @@ class Product(models.Model):
         stock = models.IntegerField()
         is_available = models.BooleanField(default=True)
         is_discount=models.BooleanField(default=False)
+        is_new = models.BooleanField(default=False)
         createDate = models.DateTimeField(auto_now_add = True)
         modifiedDate = models.DateTimeField(auto_now = True)
 
@@ -38,11 +40,15 @@ class Brand(models.Model):
         def __str__(self):
                 return f"{self.brandName}"
         
+class Gallery(models.Model):
+        image = models.ImageField(upload_to='photos/brand')
+        
+        
 class Review(models.Model):
         user = models.ForeignKey(User, on_delete=models.CASCADE)
         product = models.ForeignKey(Product, on_delete=models.CASCADE)
         rating = models.CharField(max_length=10, choices=STAR)
-        review = models.TextField(max_length=200)
+        review = models.TextField(max_length=100)
 
         def __str__(self):
                 return f"{self.product}"

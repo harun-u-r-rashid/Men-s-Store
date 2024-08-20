@@ -5,10 +5,11 @@
 {% block body %}
 
 <section class="cartSection">
+        <h6><i class="fa-solid fa-globe"></i> All cart items</h6>
 
 
         <div class="cartContainer">
-                <div class="continueShopping">
+                <div id="continueBtn" class="mt-5 mb-5">
                         <i class="fa-solid fa-backward-fast"></i>
                         <a href="{% url 'store' %}"> </i>Continue Shopping</a>
                 </div>
@@ -140,26 +141,7 @@
         
                                 </div>
                         </div>
-                       
-                        <div class="totalCalculation">
-                                <h2>cart total</h2>
-                                <div class="subTotal">
-                                        <h3>sub total</h3>
-                                        <h3>{{total}} <sub>Tk.</sub></h3>
-                                </div>
-
-                                <div class="tax">
-                                        <h3>tax</h3>
-                                        <h3>{{tax}} <sub>Tk.</sub></h3>
-                                </div>
-
-                                <div class="total">
-                                        <h3>total</h3>
-                                        <h3>{{grand_total}} <sub>Tk.</sub></h3>
-                                </div>
-                                <a class="checkout" href="{% url 'checkout' %}">Checkout</a>
-
-                        </div>
+                
 
                         {% else %}
                         <div class="noItem">
@@ -167,12 +149,39 @@
                         </div>
                         {% endif %}
 
-
-
                 </div>
 
 
         </div>
+
+</section>
+
+<section class="checkoutSection">
+     
+        <div id="total" class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+       
+                <h4><i class="fa-solid fa-bangladeshi-taka-sign"></i></h4>
+                
+                <h5 class="mb-2 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">Want to checkout?</h5>
+              
+                <hr class="my-4">
+                
+                <div class="space-y-2">
+                  <h3>Sub total: {{total}} <sub>Tk.</sub></h3>
+                  <h3>Tax: {{tax}} <sub>Tk.</sub></h3>
+                  <h3>Total: {{grand_total}} <sub>Tk.</sub></h3>
+                </div>
+                
+            
+                <div class="mt-6">
+                  <a id="checkoutBtn"
+                     class="btn block w-full text-center text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-3 py-2.5 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"
+                     href="{% url 'checkout' %}">
+                     Checkout <i class="fa-solid fa-money-bill"></i>
+                  </a>
+                </div>
+              </div>
+              
 
 </section>
 

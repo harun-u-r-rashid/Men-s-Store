@@ -1,46 +1,67 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap");
 
-/* ======Style for all == ===== */
 
-/* .btn {
-  border: 1px solid gray;
-  border-radius: 2px;
-  text-transform: uppercase;
-  text-decoration: none;
-  padding: 5px 8px;
-  transition: 0.5s all ease-in-out;
-  font-weight: 600;
-}
-.btn:hover {
-  color: white;
-  background-color: black;
-} */
 
-section h1 {
-  font-size: 18px;
-  color: black;
-  text-transform: uppercase;
-  margin-bottom: 30px;
-  text-align: center;
-  font-weight: bold;
-}
-* {
-  margin: 0;
-  padding: 0;
+.sectionContainer{
+        margin-top: 120px;  
+        margin-bottom: 40px;  
 }
 
-header h3 {
-  background-color: #333c47;
-  color: white;
-  font-size: 15px;
-  font-weight: 600;
-  text-transform: uppercase;
-  text-align: center;
-  padding: 4px;
-  position: fixed;
-  top: 0px;
-  z-index: 100;
-  left: 0;
-  right: 0;
+.belowSection{
+        margin-bottom: 40px;
 }
 
+#storeContainer{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+}
+
+.pagination{
+        margin-top: 20px;
+}
+
+
+
+/* ======Profile Update======== */
+
+.updateProfile{
+        width: 150px;
+        margin: auto;
+        border: 1px solid gray;
+        border-radius: 20px;
+        background-color: #03543F ;
+        color: white;
+}
+
+.updateProfile>a, .updateProfile>a>i{
+        color: white;
+}
+
+
+/* ======Profile CSS====== */
+
+#infoContainer{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        padding: 0 10px;
+        
+}
+#info_image{
+        margin-top: 10px;
+}
+#info_image img{
+        padding:10px;
+}
+
+
+#info_form{
+        margin-top: 30px;
+}
+
+#info_form label{
+        display: block;
+        margin: 5px 0;
+}

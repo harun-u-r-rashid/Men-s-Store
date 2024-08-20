@@ -3,37 +3,59 @@
 {% block title %}Account{% endblock %}
 
 {% block body %}
-<section class="accountSection">
-        <div class="asideContainer">
-                <aside>
-                        <ul>
-                                <li>
-                                    <a href="{% url 'history' %}"> Order History</a>
-                                </li>
-                                <li>
-                                       <a href="{% url 'payment' %}"> Payment History</a>
-                                </li>
-                                <li>
-                                        <a href="{% url 'logout' %}">Logout</a>
-                                </li>
-                        </ul>
-                </aside>
-        
-                
-                        <div class="userCard">
+<section  class="sectionContainer">
+        <h6> <i class="fa-solid fa-circle-info"></i> Your Information</h6>
+
+     
+        <div id="infoContainer" class="flex justify-center items-center">
+                <div>
+                        <button id="dropdownMenuIconButton" data-dropdown-toggle="dropdownDots" class="inline-flex items-center p-2 text-sm font-medium text-center text-gray-900 bg-white rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none dark:text-white focus:ring-gray-50 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-600" type="button">
+                                <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 4 15">
+                                <path d="M3.5 1.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Zm0 6.041a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Zm0 5.959a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z"/>
+                                </svg>
+                        </button>
                                 
-                                        <div class="imageProfile">
-                                                <img src="{% static 'images/profile.png' %}" alt="">
+                                <!-- Dropdown menu -->
+                                <div id="dropdownDots" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
+                                    <ul id="navbar3" class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownMenuIconButton">
+                                        <li>
+                                                <a href="{% url 'update' %}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Update <i class="fa-regular fa-pen-to-square"></i></a>
+                                              </li>
+                                        <li>
+                                        <a href="{% url 'history' %}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Orders <i class="fa-solid fa-folder"></i></a>
+                                      </li>
+                                      <li>
+                                        <a href="{% url 'payment' %}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Payments <i class="fa-solid fa-money-bill-1"></i></a>
+                                      </li>
+                                      <li>
+                                        <a href="{% url 'logout' %}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Logout <i class="fa-solid fa-right-from-bracket"></i></a>
+                                      </li>
+                                    </ul>
+                                    <!-- <div class="py-2">
+                                      <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Separated link</a>
+                                    </div> -->
+                                </div>
+                       </div>
+
+
+                <div id="info_image" href="#" class="flex flex-col justify-center items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+                        <img class="" src="{{user.image.url}}" alt="">
+                       
+                </div>
+
         
-                                        </div>
-
-                                        <div class="personalDetails">
-                                               <h3> {{user.username}}</h3>
-                                               <h3>{{user.email}}</h3>
-
-                                               <a href="{% url 'update' %}">Update</a>
-                                        </div>
-                        </div>
-        </div>  
+                        
+        </div> 
+        <div>
+                <form id="info_form" class="max-w-sm mx-auto">
+                        <label for="">Username: </label>
+                        <input type="text" id="disabled-input" aria-label="disabled input" class="mb-5 bg-gray-100 border border-gray-300 text-gray-900 text-sm   block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{user.username}}" disabled readonly>
+                        <label for="">Full Name: </label>
+                        <input type="text" id="disabled-input" aria-label="disabled input" class="mb-5 bg-gray-100 border border-gray-300 text-gray-900 text-sm  block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{user.get_full_name}}" disabled readonly>
+                        <label for="">Email: </label>
+                        <input type="text" id="disabled-input" aria-label="disabled input" class="mb-5 bg-gray-100 border border-gray-300 text-gray-900 text-sm   block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{user.email}}" disabled readonly>
+                       
+                      </form>
+        </div>
 </section>
 {% endblock %}

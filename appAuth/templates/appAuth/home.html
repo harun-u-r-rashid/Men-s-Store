@@ -1,7 +1,78 @@
 {% extends 'base.html' %} {% load static %} {% block title %}Home{% endblock %}
 {% block body %}
 
-<section class="heroAreaSection">
+<section class="sectionContainer">
+
+  <div
+    class="swiffy-slider slider-item-ratio slider-item-ratio-16x9 slider-nav-animation slider-nav-animation-fadein slider-item-last-visible"
+    id="swiffy-animation"
+  >
+    <ul class="slider-container" id="container1">
+      <li id="slide1" class="">
+        <img
+          src="../../../static/images/hero/one.jpg"
+          alt="..."
+          loading="lazy"
+        />
+      </li>
+      <li id="slide5" class="">
+        <img
+          src="../../../static/images/hero/two.jpg"
+          alt="..."
+          loading="lazy"
+        />
+      </li>
+      <li id="slide6" class="slide-visible">
+        <img
+          src="../../../static/images/hero/three.jpg"
+          alt="..."
+          loading="lazy"
+        />
+      </li>
+    </ul>
+
+    <button
+      type="button"
+      class="slider-nav"
+      aria-label="Go to previous"
+    ></button>
+    <button
+      type="button"
+      class="slider-nav slider-nav-next"
+      aria-label="Go to next"
+    ></button>
+
+    <div class="slider-indicators">
+      <button aria-label="Go to slide" class=""></button>
+      <button aria-label="Go to slide" class=""></button>
+      <button aria-label="Go to slide" class="active"></button>
+    </div>
+  </div>
+</section>
+
+<!-- <section class="">
+
+
+  <div id="custom-controls-gallery" class="relative w-full" data-carousel="slide">
+
+    <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
+  
+
+
+              {% for i in brand %}
+              <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                <img src="{{i.image.url}}" class="absolute block max-w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="">
+            </div>
+  
+      {% endfor %}
+
+    </div>
+
+</div>
+
+</section> -->
+
+<!-- <section class="heroAreaSection">
   <div class="slideContainer">
     <div
     class="swiffy-slider slider-item-show2 slider-item-reveal slider-nav-outside slider-nav-round slider-nav-visible slider-indicators-outside slider-indicators-round slider-indicators-dark slider-nav-animation slider-nav-animation-fadein"
@@ -93,9 +164,10 @@
   </div>
   </div>
  
-</section>
+</section> -->
 
-<hr />
+<!-- <hr />
+ 
 
 <section class="brandSection">
   <h1>Our clothing Brand</h1>
@@ -110,11 +182,99 @@
     </div>
   
   </div>
+</section> -->
+
+<section id="storeContainer" class="belowSection">
+  <h6><i class="fa-solid fa-circle-plus"></i> JUST IN</h6>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      {% for product in products %}
+
+      <div id="card" class="bg-white shadow-md overflow-hidden">
+        <img src="{{product.productImage.url}}" alt="Card Image" class="" />
+        <div id="card_title" class="p-4">
+          <div class="flex justify-between items-center">
+            <div><p class="text-gray-600 mt-1">{{ product.productName }}</p>
+              <p class="text-gray-600 mt-1"> Tk. {{ product.price }}</p></div>
+         
+            <i class="fa-regular fa-heart"></i>
+          </div>
+
+          <hr
+            class="my-3 border-gray-300 sm:mx-auto dark:border-gray-700 lg:my-5"
+          />
+          <div class="mt-2 flex justify-between items-center">
+        
+
+            
+            <a
+            class="btn border bg-dark p-2 focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-3 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"
+            href="{% url 'addCart' product.id %}"
+            ><i class="fa-solid fa-cart-plus"></i>
+          </a>
+            <a
+              class="btn border bg-dark p-2 focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-3 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"
+              href="{% url 'productDetail' product.category.slug product.slug %}"
+              >Details <i class="fa-solid fa-arrow-right"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+    <div class="pagination" aria-label="Page navigation example">
+      <ul class="inline-flex -space-x-px text-base h-10">
+        {% if products.has_previous %}
+        <li>
+          <a
+            href="?page={{products.previous_page_number}}"
+            class="flex items-center justify-center px-4 h-10 ms-0 leading-tight text-gray-500 bg-white border border-e-0 border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+            >Previous</a
+          >
+        </li>
+        {% else %}
+        <li>
+          <a
+            href="#"
+            class="flex items-center justify-center px-4 h-10 ms-0 leading-tight text-gray-500 bg-gray-100 border border-e-0 border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+            >Previous</a
+          >
+        </li>
+
+        {% endif %} {% for i in products.paginator.page_range %}
+        <li>
+          <a
+            href="?page={{i}}"
+            class="flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+            >{{i}}</a
+          >
+        </li>
+        {% endfor %} {% if products.has_next %}
+        <li>
+          <a
+            href="?page={{products.next_page_number}}"
+            class="flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+            >Next</a
+          >
+        </li>
+
+        {% else %}
+        <li>
+          <a
+            href=""
+            class="flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-gray-100 border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+            >Next</a
+          >
+        </li>
+        {% endif %}
+      </ul>
+    </div>
+
 </section>
 
-<hr />
 
-<section class="storeProductSection">
+<!-- <section class="storeProductSection">
   <div class="productDropdownMenu">
     <div class="dropdownContainer">
       <div id="dropdown">
@@ -203,55 +363,56 @@
       </div>
     </div>
   </div>
+</section> -->
+
+<section class="belowSection">
+  <h6><i class="fa-solid fa-image"></i> Product gallery</h6>
+  <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+    {% for photo in gallery %}
+    <div>
+      <img
+        class="h-50 max-w-full rounded-lg"
+        src="{{photo.image.url}}"
+        alt=""
+      />
+    </div>
+    {% endfor %}
+  </div>
 </section>
 
-<hr />
-<section class="showReviewSection">
-  <h1>Buyers words about us</h1>
+<section class="belowSection">
+  <h6><i class="fa-solid fa-star"></i> Customers Review</h6>
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+    {% for review in reviews %}
 
-<div class="reviewSlider">
-  <div
+    <div id="card" class="bg-white shadow-md overflow-hidden">
+      <div
+        id="reviewImage"
+        class="flex flex-col items-center px-2 py-2 pt-5 pb-3"
+      >
+        <img
+          class="w-20 h-20 mb-3 rounded-full shadow-lg"
+          src="{{review.user.image.url}}"
+          alt=""
+        />
 
-  class="swiffy-slider slider-item-show3 slider-nav-dark slider-nav-visible slider-nav-outside slider-item-snapstart my-3 slider-nav-sm my-xl-5 slider-indicators-square slider-indicators-outside slider-indicators-dark slider-nav-animation-slideup slider-nav-animation slider-item-last-visible"
->
-  <div class="slider-container">
-    {% if reviews %} {% for review in reviews %}
-    <div class="">
-      <div>
-        <h3 class="mb-0 h6" style="color: #df1e1e">{{review.rating}}</h3>
-        <h3 class="mb-0 h6" style="color: #df1e1e">
-          Review for - {{review.product}}
+        <span class="text-sm text-center text-gray-500 dark:text-gray-400"
+          >`{{review.review}}`</span
+        >
+      </div>
+      <hr
+        class="my-1 border-gray-300 sm:mx-auto dark:border-gray-700 lg:my-5"
+      />
+      <div class="mt-1 mb-2 px-2 flex justify-between items-center">
+        <h3 class="text-lg font-semibold mt-1 ml-4">
+          {{ review.user.username }}
         </h3>
-        <strong>{{review.review}}</strong>
-        <div>
-          <small class="text-muted text-uppercase">{{review.user}}</small>
-        </div>
+        <h3 class="text-lg font-semibold mt-1 ml-4">{{ review.rating }}</h3>
       </div>
     </div>
-    {% endfor %} {% else %}
-    <h1>No reviews yet</h1>
-    {% endif %}
-  </div>
 
-  <button type="button" class="slider-nav" aria-label="Go left"></button>
-  <button
-    type="button"
-    class="slider-nav slider-nav-next"
-    aria-label="Go left"
-  ></button>
-
-  <div
-    class="slider-indicators"
-    style="justify-content: right; margin-left: 3rem"
-  >
-    <button class="" aria-label="Go to slide"></button>
-    <button aria-label="Go to slide" class=""></button>
-    <button aria-label="Go to slide" class=""></button>
-    <button aria-label="Go to slide" class="active"></button>
+    {% endfor %}
   </div>
-</div>
-</div>
 </section>
 
-<hr />
 {% endblock %}

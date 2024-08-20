@@ -3,12 +3,13 @@
 {% block title %}Order{% endblock %}
 {% block body %}
 
-<section class="cartSection">
+<section class="sectionContainer">
+        <h6><i class="fa-solid fa-credit-card"></i> Complete your payment</h6>
         <div class="cartContainer">
-                <div class="continueShopping">
-                        <a href="{% url 'store' %}"> <i class="fa-solid fa-backward-fast"></i>Continue Shopping</a>
+                <div id="continueBtn" class="mt-5 mb-5">
+                        <i class="fa-solid fa-backward-fast"></i>
+                        <a href="{% url 'store' %}"> </i>Continue Shopping</a>
                 </div>
-
                 <div class="cartContent">
 
 
@@ -23,18 +24,13 @@
                                                         <th scope="col" class="px-6 py-3">
                                                                 Product
                                                         </th>
-                                                        <th scope="col" class="px-6 py-3">
-                                                                Quantity
-                                                        </th>
+                                                
 
                                                         <th scope="col" class="px-6 py-3">
                                                                 Price <sub>(unit)</sub>
                                                         </th>
 
-                                                        <!-- <th scope="col" class="px-6 py-3">
-                                                                Price <sub>(total)</sub>
-                                                        </th> -->
-
+                                       
 
 
 
@@ -54,11 +50,7 @@
                                                                 class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
                                                                 {{item.product.productName}}
                                                         </td>
-                                                        <td
-                                                                class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
-                                                                {{item.quantity}}
-
-                                                        </td>
+                                  
 
 
 
@@ -68,11 +60,7 @@
 
                                                         </td>
 
-                                                        <!-- <td
-                                                                class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
-                                                                {{item.sub_total}} Tk.
-
-                                                        </td> -->
+                                                
 
 
                                                 </tr>
@@ -82,25 +70,7 @@
                                 </table>
                         </div>
 
-                        <div class="totalCalculation">
-                                <h2>cart total</h2>
-                                <div class="subTotal">
-                                        <h3>sub total</h3>
-                                        <h3>{{total}} <sub>Tk.</sub></h3>
-                                </div>
-
-                                <div class="tax">
-                                        <h3>tax</h3>
-                                        <h3>{{tax}} <sub>Tk.</sub></h3>
-                                </div>
-
-                                <div class="total">
-                                        <h3>total</h3>
-                                        <h3>{{grand_total}} <sub>Tk.</sub></h3>
-                                </div>
-
-                        </div>
-
+                
                 </div>
 
 
@@ -108,21 +78,44 @@
 
 
 </section>
-<hr>
-<section class="orderFormSection">
-        <h1>Billing Address</h1>
-        <div class="empty"></div>
+
+<section class="belowSection">
+     
+        <div id="total" class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+       
+                <h4><i class="fa-solid fa-bangladeshi-taka-sign"></i></h4>
+                
+                <h5 class="mb-2 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">Make your payment.</h5>
+              
+                <hr class="my-4">
+                
+                <div class="space-y-2">
+                  <h3>Sub total: {{total}} <sub>Tk.</sub></h3>
+                  <h3>Tax: {{tax}} <sub>Tk.</sub></h3>
+                  <h3>Total: {{grand_total}} <sub>Tk.</sub></h3>
+                </div>
+                
+        
+              </div>
+              
+
+</section>
+
+
+
+<section class="belowSection">
+        <h6><i class="fa-regular fa-circle-question"></i> Share your information </h6>
         <div class="orderForm">
                 <form class="formContainer" action="" method="POST">
                         {% csrf_token %}
-                        <input type="text" name="first_name" placeholder="First Name" required>
+                                <input type="text" name="first_name" placeholder="First Name" required>
                                 <input type="text" name="last_name" placeholder="Last Name" required>
                                 <input type="email" name="email" placeholder="Email" required>
                                 <input type="number" name="phone" placeholder="Phone" required>
                                 <input type="text" name="country" placeholder="Country" required>
                                 <input type="text" name="city" placeholder="City" required>
                                 <input type="text" name="address" placeholder="Adress" required>
-                                <button class="btn orderBtn" type="submit">Order</button>
+                                <button class="btn orderBtn" type="submit">Order <i class="fa-brands fa-first-order"></i></button>
                 </form>
 
         </div>

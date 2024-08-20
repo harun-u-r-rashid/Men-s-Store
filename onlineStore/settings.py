@@ -82,6 +82,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'onlineStore.wsgi.application'
+AUTH_USER_MODEL = "appAuth.User"
 
 
 # Database
