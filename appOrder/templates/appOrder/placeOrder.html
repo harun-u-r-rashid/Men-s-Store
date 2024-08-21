@@ -121,6 +121,21 @@
         </div>
 </section>
 
+{% block extra_scripts %}
+    {% if messages %}
+        {% for message in messages %}
+            <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    Swal.fire({
+                        text: "{{ message }}",
+                        timer: 5000
+                    });
+                });
+            </script>
+        {% endfor %}
+    {% endif %}
+{% endblock %}
+
 
 
 {% endblock %}

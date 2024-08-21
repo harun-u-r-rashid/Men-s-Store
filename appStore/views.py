@@ -26,7 +26,7 @@ def store(request, categorySlug = None):
                 for pageProduct in pagedProducts:
                        print(pageProduct)
 
-                print(pagedProducts.has_next(), pagedProducts.has_previous(), pagedProducts.previous_page_number, pagedProducts.next_page_number)
+        # print("Hello",pagedProducts.has_next(), pagedProducts.has_previous(), pagedProducts.previous_page_number, pagedProducts.next_page_number)
         
         
         categories = Category.objects.all()

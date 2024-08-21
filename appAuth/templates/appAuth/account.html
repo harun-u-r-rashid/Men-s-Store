@@ -15,20 +15,19 @@
                                 </svg>
                         </button>
                                 
-                                <!-- Dropdown menu -->
                                 <div id="dropdownDots" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
                                     <ul id="navbar3" class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownMenuIconButton">
-                                        <li>
-                                                <a href="{% url 'update' %}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Update <i class="fa-regular fa-pen-to-square"></i></a>
+                                        <li class="listItem">
+                                                <a href="{% url 'update' %}" class="block px-4 py-2 ">Update <i class="fa-regular fa-pen-to-square"></i></a>
                                               </li>
-                                        <li>
-                                        <a href="{% url 'history' %}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Orders <i class="fa-solid fa-folder"></i></a>
+                                        <li class="listItem">
+                                        <a href="{% url 'history' %}" class="block px-4 py-2 ">Orders <i class="fa-solid fa-folder"></i></a>
                                       </li>
-                                      <li>
-                                        <a href="{% url 'payment' %}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Payments <i class="fa-solid fa-money-bill-1"></i></a>
+                                      <li class="listItem">
+                                        <a href="{% url 'payment' %}" class="block px-4 py-2 ">Payments <i class="fa-solid fa-money-bill-1"></i></a>
                                       </li>
-                                      <li>
-                                        <a href="{% url 'logout' %}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Logout <i class="fa-solid fa-right-from-bracket"></i></a>
+                                      <li class="listItem">
+                                        <a href="{% url 'logout' %}" class="block px-4 py-2 ">Logout <i class="fa-solid fa-right-from-bracket"></i></a>
                                       </li>
                                     </ul>
                                     <!-- <div class="py-2">
@@ -39,7 +38,7 @@
 
 
                 <div id="info_image" href="#" class="flex flex-col justify-center items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
-                        <img class="" src="{{user.image.url}}" alt="">
+                        <img class="w-85 h-80" src="{{user.image.url}}" alt="">
                        
                 </div>
 

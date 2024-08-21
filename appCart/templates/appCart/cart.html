@@ -144,9 +144,7 @@
                 
 
                         {% else %}
-                        <div class="noItem">
-                                <h3>You have no cart item</h3>
-                        </div>
+                        <p class="text-center py-5">No item in cart</p>
                         {% endif %}
 
                 </div>
@@ -184,6 +182,21 @@
               
 
 </section>
+
+{% block extra_scripts %}
+    {% if messages %}
+        {% for message in messages %}
+            <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    Swal.fire({
+                        text: "{{ message }}",
+                        timer: 5000
+                    });
+                });
+            </script>
+        {% endfor %}
+    {% endif %}
+{% endblock %}
 
 
 

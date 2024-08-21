@@ -28,13 +28,18 @@ nav {
 
 .listItem:hover,
 i:hover {
-  color: blue;
+  color: #03543f;
+  font-weight: bold;
 }
 
 li > a > i {
   color: black;
 }
 
+
+#userImage{
+  background-color: white;
+}
 /* ======Card ======= */
 
 #card {
@@ -128,4 +133,25 @@ h6 {
 
 #welcome_title span{
   color: black;
+}
+
+
+/* ===========query for nav items ================ */
+
+@media (max-width: 765px) {
+
+  .listItem {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+  }
+
+  .sectionContainer{
+    margin-top: 80px;  
+    
+}
+
+
 }

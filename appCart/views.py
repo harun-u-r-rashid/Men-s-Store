@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.contrib import messages
 from appStore.models import Product
 from .models import Cart, CartItem
 
@@ -70,6 +71,7 @@ def addToCart(request, product_id):
                 item = CartItem.objects.get(product=product, user = request.user)
                 item.quantity += 1
                 item.save()
+                messages.success(request,"Cart Updated!")
             else :
                 cartid = Cart.objects.get(cart_id = session_id)
                 cart_item = CartItem.objects.create(
@@ -79,6 +81,7 @@ def addToCart(request, product_id):
                     user = request.user
                 )
                 cart_item.save()
+                messages.success(request,"Cart Created!")
         else:
             cart = Cart.objects.create(
                 cart_id = session_id
@@ -90,6 +93,7 @@ def addToCart(request, product_id):
                 item = CartItem.objects.get(product=product, user = request.user)
                 item.quantity+=1
                 item.save()
+                messages.success(request,"Cart Updated!")
             else:
                   cartid = Cart.objects.get(cart_id=session_id)
                   cart_item = CartItem.objects.create(
@@ -99,10 +103,11 @@ def addToCart(request, product_id):
                         cart = cartid
                   )
                   cart_item.save()
+                  messages.success(request,"Cart Created!")
             
               
     else:
-        # User that are not authenticated can't add item to the cart
+        messages.error(request,"Please login!")
         return redirect('login')
         # Non authenticated user
         # print(session_id)
@@ -212,7 +217,9 @@ def removeCartItem(request, product_id):
         if cart_item.quantity>1:
                 cart_item.quantity-=1
                 cart_item.save()
+                messages.success(request, "Cart Updated!")
         else:
+                messages.success(request, "Cart Updated!")
                 cart_item.delete()
        
       return redirect('cart')

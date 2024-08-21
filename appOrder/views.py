@@ -14,6 +14,8 @@ from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt
 from appStore.models import Product
 from django.shortcuts import redirect
+from django.contrib import messages
+
 
 #@method_decorator(csrf_exempt, name='dispatch') #An error is showing while using this
 
@@ -80,6 +82,7 @@ def checkout(request):
         cart_items = CartItem.objects.filter(user = request.user)
 
         if cart_items.count() < 1:
+                messages.error(request,"Add item to the cart.")
                 return redirect('store')
         
 

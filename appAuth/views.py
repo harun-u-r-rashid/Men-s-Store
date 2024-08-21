@@ -81,12 +81,13 @@ def account(request):
 def register(request):
     form = RegistrationForm()
     if request.method == "POST":
-        form = RegistrationForm(request.POST)
+        form = RegistrationForm(request.POST, request.FILES)
 
         if form.is_valid():
             user = form.save(commit=False)
             user.is_active = False
             user.backend = "django.contrib.auth.backends.ModelBackend"
+            user.set_password(form.cleaned_data['password'])
             user.save()
 
             current_site = get_current_site(request)
@@ -163,7 +164,7 @@ def login(request):
             messages.success(request, "Successfully logged in.")
             return redirect("home")
         else:
-            messages.error(request, "Invalid Username or password.")
+            messages.error(request, "Invalid email or password.")
     return render(request, "appAuth/login.html")
 
 
@@ -184,7 +185,7 @@ def resetPassword(request):
 
             current_site = get_current_site(request)
             email_subject = "Reset your password"
-            messages = render_to_string(
+            email_message = render_to_string(
                 "appAuth/reset_password_email.html",
                 {
                     "user": user,
@@ -195,8 +196,9 @@ def resetPassword(request):
             )
 
             to_email = email
-            send_email = EmailMessage(email_subject, messages, to=[to_email])
+            send_email = EmailMessage(email_subject, email_message, to=[to_email])
             send_email.send()
+           
             messages.success(request, "Check your email to reset your password")
             return redirect("login")
         else:
@@ -219,9 +221,11 @@ def activate_reset_password(request, uidb64, token):
             if form.is_valid():
                 user = form.save()
                 update_session_auth_hash(request, user)
+                messages.success(request, "Password updated!")
                 return redirect("login")
         else:
             form = CustomSetPasswordForm(user)
+
         return render(request, "appAuth/reset_form.html", {"form": form})
 
     else:
@@ -237,5 +241,6 @@ def updateProfile(request):
         form = UpdateProfileForm(request.POST, instance=user)
         if form.is_valid():
             form.save()
+            # messages.success(request, "Updated!")
             return redirect("account")
     return render(request, "appAuth/updateProfile.html", {"form": form})

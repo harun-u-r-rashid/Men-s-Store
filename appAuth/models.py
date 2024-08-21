@@ -44,7 +44,7 @@ class User(AbstractBaseUser):
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
     email = models.EmailField(max_length=30, unique=True)
-    image = models.ImageField(upload_to="user", blank=True, null=True)
+    image = models.ImageField(upload_to="user", blank=False, null=False)
     date_joined = models.DateTimeField(auto_now_add=True)
     last_login = models.DateTimeField(auto_now=True)
     is_admin = models.BooleanField(default=False)
